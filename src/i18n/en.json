@@ -1,0 +1,94 @@
+{
+  "nav": {
+    "brandTitle": "NINAMORE",
+    "brandSubtitle": "Knowledge Academy",
+    "home": "Home",
+    "about": "About",
+    "courses": "Courses",
+    "mentors": "Mentors",
+    "gallery": "Gallery",
+    "contact": "Contact",
+    "enquireNow": "Enquire Now",
+    "addressShort": "Alsi Plot 393, Akola",
+    "hoursShort": "Mon–Sun: 11:00 AM – 8:00 PM"
+  },
+  "hero": {
+    "badge": "CBSE & Maharashtra State Board Tutorials in Akola",
+    "learn": "Learn.",
+    "grow": "Grow.",
+    "succeed": "Succeed.",
+    "paragraph": "Dedicated tutorial academy in Alsi Plot, Akola helping Classes 5 to 12 master textbook concepts, eliminate exam stress, and achieve board excellence.",
+    "ctaCourses": "Explore Courses",
+    "ctaDemo": "Book Free Demo",
+    "statClasses": "Classes 5–12",
+    "statClassesSub": "CBSE & State Board",
+    "statLocation": "Alsi Plot, Akola",
+    "statLocationSub": "Central Campus",
+    "statBatches": "Small Batches",
+    "statBatchesSub": "Individual Focus",
+    "statDays": "Mon–Sun: 11am–8pm",
+    "statDaysSub": "7 Days Open"
+  },
+  "trust": {
+    "familiesLine": "Trusted by families across Akola for dedicated CBSE & State Board academic guidance."
+  },
+  "demoBanner": {
+    "badge": "Special Trial",
+    "title": "Free Demo Class: Try Before You Join",
+    "benefit1": "No pressure or commitment",
+    "benefit2": "Meet the subject mentor",
+    "benefit3": "Check batch fit & pace",
+    "button": "Book Free Demo"
+  },
+  "howWeTeach": {
+    "badge": "Methodology",
+    "title": "How We Teach",
+    "subtitle": "A disciplined, step-by-step learning cycle proven for school and board success.",
+    "step1Title": "1. Learn",
+    "step1Desc": "Deep conceptual clarity from textbook fundamentals with interactive blackboard teaching.",
+    "step2Title": "2. Practice",
+    "step2Desc": "Step-by-step problem sets, formula drills, and derivations under direct mentor supervision.",
+    "step3Title": "3. Test",
+    "step3Desc": "Regular timed unit evaluations simulating real CBSE & State Board examination conditions."
+  },
+  "batch": {
+    "badge": "Class Schedules",
+    "title": "Batch Timings & Seat Availability",
+    "subtitle": "Flexible operational hours (11:00 AM – 8:00 PM) structured to suit school and junior college routines in Akola.",
+    "seatsOpen": "Seats open",
+    "fewSeats": "Few seats left",
+    "feesNotice": "Fees: Contact us directly for transparent program fee details and flexible schedules.",
+    "callEnquire": "Call to Reserve Seat"
+  },
+  "quiz": {
+    "badge": "30-Second Quiz",
+    "title": "Find the Right Batch for You",
+    "subtitle": "Answer 3 quick questions to discover your ideal study schedule in Akola.",
+    "step1Title": "Which class or grade are you currently studying in?",
+    "step2Title": "Which educational board syllabus do you follow?",
+    "step3Title": "What is your primary learning goal?",
+    "recommended": "Recommended Program",
+    "whatsappCta": "Check Timings on WhatsApp",
+    "startOver": "Start Over"
+  },
+  "form": {
+    "badge": "Admissions 2026",
+    "title": "Student Admission Enquiry",
+    "subtitle": "Fill in the details below. Our team in Alsi Plot, Akola will call you within 24 hours.",
+    "fullName": "Student Full Name",
+    "phone": "Contact Mobile Number",
+    "email": "Email Address (Optional)",
+    "grade": "Student Grade / Class",
+    "board": "Board Syllabus",
+    "batchTime": "Preferred Batch Timing",
+    "message": "Questions or Specific Requirements (Optional)",
+    "submitBtn": "Submit Admission Enquiry",
+    "submitting": "Submitting Enquiry...",
+    "successTitle": "Enquiry Submitted Successfully!",
+    "successMsg": "Thank you for reaching out. Our academic team in Akola will contact you shortly."
+  },
+  "mobileBar": {
+    "call": "Call",
+    "whatsapp": "WhatsApp"
+  }
+}

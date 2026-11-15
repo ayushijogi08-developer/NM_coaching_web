@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" fill="none">
+  <defs>
+    <linearGradient id="p9_bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3F1F6B" />
+      <stop offset="60%" stop-color="#2A1448" />
+      <stop offset="100%" stop-color="#18072B" />
+    </linearGradient>
+    <linearGradient id="p9_gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFE082" />
+      <stop offset="40%" stop-color="#F6B93B" />
+      <stop offset="100%" stop-color="#F28C28" />
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#p9_bg)" />
+
+  <!-- Radiance Background Burst -->
+  <circle cx="400" cy="300" r="240" stroke="#F6B93B" stroke-width="1.5" stroke-dasharray="6 12" opacity="0.3" />
+  <circle cx="400" cy="300" r="180" stroke="#F28C28" stroke-width="2" opacity="0.25" />
+
+  <!-- Confetti / Floating Pixels Celebration -->
+  <rect x="180" y="140" width="16" height="16" rx="3" fill="#F6B93B" opacity="0.9" transform="rotate(15 180 140)" />
+  <rect x="230" y="220" width="14" height="14" rx="3" fill="#F28C28" opacity="0.8" transform="rotate(-25 230 220)" />
+  <rect x="210" y="90" width="12" height="12" rx="2" fill="#FFFFFF" opacity="0.8" />
+  
+  <rect x="580" y="130" width="18" height="18" rx="4" fill="#F28C28" opacity="0.9" transform="rotate(-15 580 130)" />
+  <rect x="630" y="210" width="14" height="14" rx="3" fill="#F6B93B" opacity="0.85" transform="rotate(20 630 210)" />
+  <rect x="590" y="80" width="12" height="12" rx="2" fill="#FFFFFF" opacity="0.8" />
+
+  <!-- Grand Golden Trophy in Center -->
+  <g transform="translate(400, 310)">
+    <!-- Base Pedestal -->
+    <rect x="-80" y="130" width="160" height="30" rx="6" fill="#25103E" stroke="#6B3FA0" stroke-width="3" />
+    <rect x="-60" y="100" width="120" height="30" rx="4" fill="#3F1F6B" />
+    
+    <!-- Trophy Stem / Riser -->
+    <rect x="-16" y="55" width="32" height="45" rx="3" fill="url(#p9_gold)" />
+    <polygon points="-30,55 30,55 20,40 -20,40" fill="#E0A026" />
+
+    <!-- Trophy Cup Body -->
+    <path d="M -70 -70 Q -65 30 0 35 Q 65 30 70 -70 Z" fill="url(#p9_gold)" stroke="#FFF2B2" stroke-width="2.5" />
+    <ellipse cx="0" cy="-70" rx="70" ry="20" fill="#FFEAA7" />
+    <ellipse cx="0" cy="-70" rx="60" ry="15" fill="#E0A026" />
+
+    <!-- Trophy Left Handle -->
+    <path d="M -60 -50 C -120 -50, -110 10, -50 15" stroke="url(#p9_gold)" stroke-width="12" stroke-linecap="round" fill="none" />
+    <!-- Trophy Right Handle -->
+    <path d="M 60 -50 C 120 -50, 110 10, 50 15" stroke="url(#p9_gold)" stroke-width="12" stroke-linecap="round" fill="none" />
+
+    <!-- Embossed Academy Star on Cup -->
+    <polygon points="0,-35 6,-18 24,-18 10,-8 15,10 0,0 -15,10 -10,-8 -24,-18 -6,-18" fill="#FFFFFF" opacity="0.9" />
+
+    <!-- Excellence Ribbon on Pedestal -->
+    <rect x="-50" y="110" width="100" height="12" rx="2" fill="#F28C28" />
+    <text x="0" y="120" font-family="sans-serif" font-weight="800" font-size="9" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">EXCELLENCE</text>
+  </g>
+
+  <!-- Laurel Wreath Leaves on Sides -->
+  <g stroke="#F6B93B" stroke-width="3" stroke-linecap="round" opacity="0.6" fill="none">
+    <path d="M 270 260 C 270 340, 310 390, 340 410" />
+    <path d="M 530 260 C 530 340, 490 390, 460 410" />
+  </g>
+
+  <!-- Label Badge -->
+  <g transform="translate(280, 30)">
+    <rect width="240" height="36" rx="18" fill="#F6B93B" fill-opacity="0.2" stroke="#F6B93B" stroke-width="1.5" />
+    <text x="120" y="23" font-family="sans-serif" font-weight="700" font-size="13" fill="#F6B93B" text-anchor="middle" letter-spacing="1">CENTRE ACHIEVEMENT</text>
+  </g>
+</svg>

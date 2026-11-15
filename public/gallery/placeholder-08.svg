@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" fill="none">
+  <defs>
+    <linearGradient id="p8_bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4B237F" />
+      <stop offset="60%" stop-color="#2D1350" />
+      <stop offset="100%" stop-color="#19062D" />
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#p8_bg)" />
+
+  <!-- Multiple Overlapping Interactive Speech & Discussion Bubbles -->
+  <!-- Bubble 1 (Left Orange - Student Question) -->
+  <g transform="translate(60, 120)">
+    <rect width="310" height="110" rx="18" fill="#F28C28" />
+    <path d="M 60 110 L 50 135 L 90 110 Z" fill="#F28C28" />
+    <text x="28" y="46" font-family="sans-serif" font-weight="700" font-size="16" fill="#FFFFFF">How do we balance</text>
+    <text x="28" y="74" font-family="sans-serif" font-weight="700" font-size="16" fill="#FFFFFF">chemical equations?</text>
+    <circle cx="270" cy="80" r="14" fill="#FFFFFF" opacity="0.3" />
+  </g>
+
+  <!-- Bubble 2 (Right Purple - Mentor Answer) -->
+  <g transform="translate(425, 120)">
+    <rect width="320" height="120" rx="18" fill="#6B3FA0" stroke="#9B51E0" stroke-width="2" />
+    <path d="M 230 120 L 240 145 L 200 120 Z" fill="#6B3FA0" />
+    <text x="28" y="42" font-family="sans-serif" font-weight="700" font-size="16" fill="#F6B93B">Step 1: Count atoms</text>
+    <text x="28" y="68" font-family="sans-serif" font-weight="600" font-size="14" fill="#FFFFFF">Step 2: Balance metals</text>
+    <text x="28" y="94" font-family="monospace" font-size="15" fill="#F5F0FA">2H₂ + O₂ → 2H₂O</text>
+  </g>
+
+  <!-- Bubble 3 (Center Golden Yellow - Formula query) -->
+  <g transform="translate(260, 275)">
+    <rect width="280" height="95" rx="18" fill="#F6B93B" />
+    <path d="M 140 95 L 135 120 L 165 95 Z" fill="#F6B93B" />
+    <text x="32" y="42" font-family="sans-serif" font-weight="700" font-size="16" fill="#2A1744">Pythagoras theorem</text>
+    <text x="32" y="72" font-family="monospace" font-weight="700" font-size="19" fill="#2A1744">c² = a² + b²</text>
+  </g>
+
+  <!-- Two Student Discussion Silhouettes at Bottom -->
+  <g transform="translate(220, 500)">
+    <!-- Student Left -->
+    <circle cx="0" cy="0" r="38" fill="#F28C28" />
+    <circle cx="0" cy="-8" r="17" fill="#FFFFFF" opacity="0.9" />
+    <path d="M -26 28 C -24 7, 24 7, 26 28 Z" fill="#FFFFFF" opacity="0.9" />
+  </g>
+
+  <g transform="translate(580, 500)">
+    <!-- Student Right -->
+    <circle cx="0" cy="0" r="38" fill="#6B3FA0" stroke="#F6B93B" stroke-width="3" />
+    <circle cx="0" cy="-8" r="17" fill="#FFFFFF" opacity="0.9" />
+    <path d="M -26 28 C -24 7, 24 7, 26 28 Z" fill="#FFFFFF" opacity="0.9" />
+  </g>
+
+  <!-- Central Collaborative Idea Spark -->
+  <g transform="translate(400, 480)">
+    <circle cx="0" cy="0" r="28" fill="#F6B93B" />
+    <polygon points="0,-16 4,-4 16,0 4,4 0,16 -4,4 -16,0 -4,-4" fill="#FFFFFF" />
+  </g>
+
+  <!-- Floating Dispersing Pixels -->
+  <rect x="70" y="270" width="16" height="16" rx="3" fill="#F6B93B" opacity="0.85" />
+  <rect x="130" y="380" width="14" height="14" rx="3" fill="#F28C28" opacity="0.8" />
+  <rect x="710" y="270" width="18" height="18" rx="4" fill="#F28C28" opacity="0.8" />
+  <rect x="660" y="380" width="14" height="14" rx="3" fill="#FFFFFF" opacity="0.75" />
+
+  <!-- Label Badge -->
+  <g transform="translate(270, 32)">
+    <rect width="260" height="34" rx="17" fill="#F6B93B" fill-opacity="0.2" stroke="#F6B93B" stroke-width="1.5" />
+    <text x="130" y="22" font-family="sans-serif" font-weight="700" font-size="12" fill="#F6B93B" text-anchor="middle" letter-spacing="1">INTERACTIVE DISCUSSION</text>
+  </g>
+</svg>

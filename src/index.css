@@ -1,0 +1,418 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Ninamore Knowledge Academy Theme Variables */
+  --color-primary-purple: #6B3FA0;
+  --color-deep-purple: #3F1F6B;
+  --color-accent-orange: #F28C28;
+  --color-accent-yellow: #F6B93B;
+  --color-soft-lavender: #F5F0FA;
+  --color-text-dark: #2A1744;
+  --color-text-muted: #5B4B75;
+  --color-white: #FFFFFF;
+  --radius-theme: 16px;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-soft-lavender);
+    color: var(--color-text-dark);
+    font-family: 'DM Sans Variable', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Plus Jakarta Sans Variable', sans-serif;
+    color: inherit;
+    font-weight: 700;
+  }
+
+  /* Accessibility: High-contrast focus indicator for keyboard navigation */
+  :focus-visible {
+    outline: 2px solid #6B3FA0 !important;
+    outline-offset: 2px !important;
+  }
+  .bg-brand-deep :focus-visible,
+  nav :focus-visible,
+  footer :focus-visible,
+  [class*="bg-[#3F1F6B]"] :focus-visible,
+  [class*="bg-[#4A2680]"] :focus-visible {
+    outline: 2px solid #F6B93B !important;
+    outline-offset: 2px !important;
+  }
+}
+
+@layer components {
+  /* ========================================================================= */
+  /* Shared Base Button Styles: Typography, Shape, Layout & Interaction        */
+  /* ========================================================================= */
+  .btn-primary,
+  .btn-secondary,
+  .btn-secondary-light {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1;
+    letter-spacing: 0; /* tracking-normal */
+    border-radius: 12px; /* rounded-xl (12px) */
+    height: 44px; /* Default height 44px (h-11) on cards and navbar */
+    min-height: 44px;
+    padding-left: 1.25rem; /* px-5 */
+    padding-right: 1.25rem; /* px-5 */
+    box-sizing: border-box;
+    white-space: nowrap;
+    text-decoration: none;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+                background 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+                color 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  @media (min-width: 640px) {
+    .btn-primary,
+    .btn-secondary,
+    .btn-secondary-light {
+      font-size: 15px;
+      padding-left: 1.5rem; /* px-6 on desktop */
+      padding-right: 1.5rem; /* px-6 on desktop */
+    }
+  }
+
+  /* SVG Icons in all buttons */
+  .btn-primary svg,
+  .btn-secondary svg,
+  .btn-secondary-light svg {
+    flex-shrink: 0;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Active state for all buttons: scale 0.97 */
+  .btn-primary:active:not(:disabled),
+  .btn-secondary:active:not(:disabled),
+  .btn-secondary-light:active:not(:disabled) {
+    transform: scale(0.97) !important;
+  }
+
+  /* Disabled state for all buttons */
+  .btn-primary:disabled,
+  .btn-primary[disabled],
+  .btn-secondary:disabled,
+  .btn-secondary[disabled],
+  .btn-secondary-light:disabled,
+  .btn-secondary-light[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
+  /* ========================================================================= */
+  /* Size Modifiers: .btn-primary-lg (48px) and .btn-sm (36px)                 */
+  /* ========================================================================= */
+  .btn-primary-lg,
+  .btn-secondary-lg,
+  .btn-secondary-light-lg,
+  .btn-secondary.btn-primary-lg,
+  .btn-secondary-light.btn-primary-lg {
+    height: 48px !important; /* h-12 on hero and CTA sections */
+    min-height: 48px !important;
+    padding-left: 1.5rem !important; /* px-6 */
+    padding-right: 1.5rem !important; /* px-6 */
+    font-size: 14px;
+  }
+  @media (min-width: 640px) {
+    .btn-primary-lg,
+    .btn-secondary-lg,
+    .btn-secondary-light-lg,
+    .btn-secondary.btn-primary-lg,
+    .btn-secondary-light.btn-primary-lg {
+      font-size: 15px;
+    }
+  }
+
+  /* .btn-sm: only for tiny inline buttons (36px, px-4, text 13px) */
+  .btn-sm,
+  .btn-primary.btn-sm,
+  .btn-secondary.btn-sm,
+  .btn-secondary-light.btn-sm {
+    height: 36px !important;
+    min-height: 36px !important;
+    padding-left: 1rem !important; /* px-4 */
+    padding-right: 1rem !important; /* px-4 */
+    font-size: 13px !important;
+    border-radius: 12px !important;
+  }
+
+  /* ========================================================================= */
+  /* 1. Primary Button                                                         */
+  /*    - Subtle vertical gradient #FFB347 (top) to #F28C28 (bottom)           */
+  /*    - Deep purple #2A1744 text & icons (> 5:1 contrast)                    */
+  /*    - 1px inner highlight + 0 4px 14px -4px rgba(242,140,40,0.55) shadow  */
+  /*    - Soft shine sweep diagonal animation on desktop hover                 */
+  /* ========================================================================= */
+  .btn-primary {
+    background: linear-gradient(180deg, #FFB347 0%, #F28C28 100%);
+    color: #2A1744 !important;
+    border: none;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45),
+                0 4px 14px -4px rgba(242, 140, 40, 0.55);
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  .btn-primary,
+  .btn-primary * {
+    color: #2A1744 !important;
+  }
+
+  .btn-primary svg {
+    color: #2A1744 !important;
+    stroke: currentColor;
+  }
+
+  /* Optional shine sweep: diagonal white/25% gradient moving across once on hover */
+  .btn-primary::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -120%;
+    width: 60%;
+    height: 200%;
+    background: linear-gradient(
+      115deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.25) 50%,
+      transparent 100%
+    );
+    transform: rotate(25deg);
+    pointer-events: none;
+    opacity: 0;
+    z-index: 10;
+  }
+
+  /* Desktop hover state (hover: hover only) */
+  @media (hover: hover) {
+    .btn-primary:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6),
+                  0 10px 24px -6px rgba(242, 140, 40, 0.6);
+      background: linear-gradient(180deg, #FFC15E 0%, #F59A35 100%);
+      color: #2A1744 !important;
+    }
+
+    .btn-primary:hover:not(:disabled)::after {
+      opacity: 1;
+      left: 140%;
+      transition: left 0.65s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+    }
+
+    /* Arrow icon slides 3px right */
+    .btn-primary:hover:not(:disabled) svg:last-child:not(:only-child),
+    .btn-primary:hover:not(:disabled) svg.lucide-arrow-right,
+    .btn-primary:hover:not(:disabled) svg.lucide-chevron-right,
+    .btn-primary:hover:not(:disabled) svg.lucide-external-link {
+      transform: translateX(3px);
+    }
+  }
+
+  /* Accessibility: Disable shine sweep & movement under prefers-reduced-motion */
+  @media (prefers-reduced-motion: reduce) {
+    .btn-primary::after {
+      display: none !important;
+    }
+    .btn-primary:hover:not(:disabled) svg:last-child {
+      transform: none !important;
+    }
+  }
+
+  /* Focus-visible: 3px ring in #F6B93B with 2px offset (white on light backgrounds) */
+  .btn-primary:focus-visible {
+    outline: 3px solid #F6B93B !important;
+    outline-offset: 2px !important;
+    box-shadow: 0 0 0 2px #FFFFFF, 0 0 0 5px #F6B93B !important;
+  }
+
+  /* Focus-visible on purple / dark backgrounds: deep purple offset */
+  .bg-brand-deep .btn-primary:focus-visible,
+  [class*="bg-[#3F1F6B]"] .btn-primary:focus-visible,
+  [class*="bg-[#4A2680]"] .btn-primary:focus-visible,
+  [class*="bg-[#542B85]"] .btn-primary:focus-visible,
+  [class*="bg-[#5A2E94]"] .btn-primary:focus-visible,
+  [class*="bg-brand-deep"] .btn-primary:focus-visible,
+  [class*="from-brand-deep"] .btn-primary:focus-visible,
+  header .btn-primary:focus-visible,
+  nav .btn-primary:focus-visible,
+  footer .btn-primary:focus-visible {
+    box-shadow: 0 0 0 2px #2A1744, 0 0 0 5px #F6B93B !important;
+  }
+
+  /* ========================================================================= */
+  /* 2. Secondary Button (White outline for Purple / Dark backgrounds)         */
+  /* ========================================================================= */
+  .btn-secondary {
+    background: transparent;
+    color: #FFFFFF;
+    border: 1.5px solid rgba(255, 255, 255, 0.85);
+    box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.1);
+  }
+  .btn-secondary svg {
+    color: currentColor;
+  }
+
+  @media (hover: hover) {
+    .btn-secondary:hover:not(:disabled) {
+      background: #FFFFFF;
+      color: #2A1744;
+      border-color: #FFFFFF;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px -6px rgba(0, 0, 0, 0.25);
+    }
+    .btn-secondary:hover:not(:disabled) svg:last-child:not(:only-child),
+    .btn-secondary:hover:not(:disabled) svg.lucide-arrow-right,
+    .btn-secondary:hover:not(:disabled) svg.lucide-chevron-right {
+      transform: translateX(3px);
+    }
+  }
+
+  .btn-secondary:focus-visible {
+    outline: 3px solid #F6B93B !important;
+    outline-offset: 2px !important;
+    box-shadow: 0 0 0 2px #2A1744, 0 0 0 5px #F6B93B !important;
+  }
+
+  /* ========================================================================= */
+  /* 3. Secondary Button Light (Purple outline for Light / White backgrounds)  */
+  /* ========================================================================= */
+  .btn-secondary-light {
+    background: transparent;
+    color: #6B3FA0;
+    border: 1.5px solid rgba(107, 63, 160, 0.4);
+    box-shadow: 0 2px 8px -2px rgba(107, 63, 160, 0.08);
+  }
+  .btn-secondary-light svg {
+    color: currentColor;
+  }
+
+  @media (hover: hover) {
+    .btn-secondary-light:hover:not(:disabled) {
+      background: #6B3FA0;
+      color: #FFFFFF;
+      border-color: #6B3FA0;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px -6px rgba(107, 63, 160, 0.25);
+    }
+    .btn-secondary-light:hover:not(:disabled) svg:last-child:not(:only-child),
+    .btn-secondary-light:hover:not(:disabled) svg.lucide-arrow-right,
+    .btn-secondary-light:hover:not(:disabled) svg.lucide-chevron-right {
+      transform: translateX(3px);
+    }
+  }
+
+  .btn-secondary-light:focus-visible {
+    outline: 3px solid #F6B93B !important;
+    outline-offset: 2px !important;
+    box-shadow: 0 0 0 2px #FFFFFF, 0 0 0 5px #F6B93B !important;
+  }
+
+  /* Premium Card: White, 1px border rgba(107,63,160,0.10), radius 16px, soft shadow, 2px hover lift */
+  .theme-card {
+    @apply bg-white rounded-2xl p-5 sm:p-6 transition-all duration-200;
+    border: 1px solid rgba(107, 63, 160, 0.10);
+    box-shadow: 0 4px 20px -2px rgba(107, 63, 160, 0.06);
+  }
+  .theme-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -4px rgba(107, 63, 160, 0.12);
+  }
+}
+
+/* Scroll reveal utility classes */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+html { 
+  scroll-behavior: smooth; 
+}
+
+/* Keep headings from hiding under sticky navbar */
+div[id], section[id] { 
+  scroll-margin-top: 88px; 
+}
+
+/* GPU Optimization for continuous animated items */
+.animate-float,
+.animate-float-slow,
+.animate-marquee,
+.animate-marquee-slow {
+  will-change: transform;
+}
+
+/* 3D Flip Card Utilities */
+.perspective-1000 {
+  perspective: 1000px;
+}
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+.backface-hidden {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Pixel Drift & Twinkle animation for brand motifs */
+@keyframes pixelDriftTwinkle {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    filter: brightness(1);
+  }
+  50% {
+    transform: translateY(-8px) scale(1.12);
+    filter: brightness(1.35);
+  }
+}
+
+/* Accessibility: Strict prefers-reduced-motion override disabling custom keyframes & transitions */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-delay: -1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    background-attachment: initial !important;
+    scroll-behavior: auto !important;
+    transition-delay: 0s !important;
+    transition-duration: 0s !important;
+  }
+
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" fill="none">
+  <defs>
+    <linearGradient id="p4_bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4B237F" />
+      <stop offset="60%" stop-color="#2D1350" />
+      <stop offset="100%" stop-color="#1A072E" />
+    </linearGradient>
+    <linearGradient id="p4_glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F6B93B" />
+      <stop offset="100%" stop-color="#F28C28" />
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#p4_bg)" />
+
+  <!-- Background Orbit / Radiance -->
+  <circle cx="400" cy="270" r="230" stroke="#F6B93B" stroke-width="1.5" stroke-dasharray="6 10" opacity="0.2" />
+  <circle cx="400" cy="270" r="170" stroke="#F28C28" stroke-width="2" opacity="0.25" />
+
+  <!-- Question Mark '?' morphing into Exclamation '!' -->
+  <!-- Left: The Question / The Doubt -->
+  <g transform="translate(280, 190)">
+    <circle cx="0" cy="0" r="54" fill="#3F1F6B" stroke="#6B3FA0" stroke-width="4" />
+    <text x="0" y="22" font-family="sans-serif" font-weight="900" font-size="62" fill="#F28C28" text-anchor="middle">?</text>
+  </g>
+
+  <!-- Transformative Arrow / Connecting Pixels -->
+  <g transform="translate(400, 190)">
+    <rect x="-18" y="-6" width="36" height="12" rx="3" fill="#F6B93B" opacity="0.75" />
+    <polygon points="18,0 8,-10 8,10" fill="#F6B93B" />
+    <rect x="-8" y="-22" width="12" height="12" rx="2" fill="#F28C28" opacity="0.85" />
+    <rect x="-4" y="16" width="14" height="14" rx="2" fill="#FFFFFF" opacity="0.8" />
+  </g>
+
+  <!-- Right: The Clarity / The Solution -->
+  <g transform="translate(520, 190)">
+    <circle cx="0" cy="0" r="54" fill="url(#p4_glow)" stroke="#FFFFFF" stroke-width="4" />
+    <text x="0" y="22" font-family="sans-serif" font-weight="900" font-size="62" fill="#FFFFFF" text-anchor="middle">!</text>
+  </g>
+
+  <!-- One-on-One Tutorial Desk -->
+  <g transform="translate(150, 360)">
+    <!-- Desk surface -->
+    <rect x="0" y="0" width="500" height="60" rx="8" fill="#3F1F6B" stroke="#6B3FA0" stroke-width="4" />
+    <rect x="40" y="60" width="16" height="130" fill="#25103E" />
+    <rect x="444" y="60" width="16" height="130" fill="#25103E" />
+    <line x1="40" y1="130" x2="460" y2="130" stroke="#6B3FA0" stroke-width="3" />
+
+    <!-- Open Practice Paper with Checkmarks -->
+    <rect x="175" y="-30" width="150" height="65" rx="5" fill="#FFFFFF" />
+    <line x1="190" y1="-12" x2="265" y2="-12" stroke="#6B3FA0" stroke-width="2.5" opacity="0.4" />
+    <line x1="190" y1="2" x2="245" y2="2" stroke="#6B3FA0" stroke-width="2.5" opacity="0.4" />
+    <line x1="190" y1="16" x2="275" y2="16" stroke="#6B3FA0" stroke-width="2.5" opacity="0.4" />
+
+    <!-- Green Tick Marks -->
+    <path d="M 290 -14 L 295 -9 L 306 -20" stroke="#10B981" stroke-width="3" stroke-linecap="round" fill="none" />
+    <path d="M 290 0 L 295 5 L 306 -6" stroke="#10B981" stroke-width="3" stroke-linecap="round" fill="none" />
+    <path d="M 290 14 L 295 19 L 306 8" stroke="#10B981" stroke-width="3" stroke-linecap="round" fill="none" />
+
+    <!-- Stationery Cup -->
+    <rect x="70" y="-32" width="30" height="38" rx="4" fill="#F28C28" />
+    <line x1="80" y1="-46" x2="80" y2="-32" stroke="#F6B93B" stroke-width="4" stroke-linecap="round" />
+    <line x1="90" y1="-42" x2="90" y2="-32" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" />
+
+    <!-- Scientific Calculator on Right -->
+    <rect x="375" y="-26" width="45" height="52" rx="4" fill="#2A1744" stroke="#6B3FA0" stroke-width="2" />
+    <rect x="382" y="-20" width="31" height="12" rx="2" fill="#10B981" opacity="0.3" />
+    <circle cx="388" cy="3" r="2" fill="#F6B93B" />
+    <circle cx="398" cy="3" r="2" fill="#F6B93B" />
+    <circle cx="408" cy="3" r="2" fill="#F6B93B" />
+    <circle cx="388" cy="14" r="2" fill="#FFFFFF" opacity="0.8" />
+    <circle cx="398" cy="14" r="2" fill="#FFFFFF" opacity="0.8" />
+    <circle cx="408" cy="14" r="2" fill="#F28C28" />
+  </g>
+
+  <!-- Signature Floating Pixels -->
+  <rect x="90" y="140" width="16" height="16" rx="3" fill="#F6B93B" opacity="0.8" />
+  <rect x="140" y="240" width="12" height="12" rx="2" fill="#F28C28" opacity="0.8" />
+  <rect x="700" y="140" width="18" height="18" rx="4" fill="#F28C28" opacity="0.85" />
+  <rect x="650" y="250" width="14" height="14" rx="3" fill="#FFFFFF" opacity="0.7" />
+
+  <!-- Label Badge -->
+  <g transform="translate(290, 32)">
+    <rect width="220" height="34" rx="17" fill="#F28C28" fill-opacity="0.2" stroke="#F28C28" stroke-width="1.5" />
+    <text x="110" y="22" font-family="sans-serif" font-weight="700" font-size="12" fill="#F6B93B" text-anchor="middle" letter-spacing="1">DOUBT CLEARING</text>
+  </g>
+</svg>
