@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, ArrowRight, MapPin, Clock } from 'lucide-react';
+import { Menu, X, ArrowRight, MapPin, Clock, Globe, ChevronDown } from 'lucide-react';
 import { CONTACT_INFO } from '../../data/contactConfig';
 import { useLanguage } from '../../i18n/LanguageContext';
 
@@ -33,6 +33,27 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState('home');
+  const [langOpen, setLangOpen] = useState(false);
+  const langRef = useRef(null);
+
+  // Close the language dropdown on outside tap or Escape
+  useEffect(() => {
+    if (!langOpen) return;
+    const onDown = (e) => {
+      if (langRef.current && !langRef.current.contains(e.target)) setLangOpen(false);
+    };
+    const onKey = (e) => {
+      if (e.key === 'Escape') setLangOpen(false);
+    };
+    document.addEventListener('mousedown', onDown);
+    document.addEventListener('touchstart', onDown, { passive: true });
+    document.addEventListener('keydown', onKey);
+    return () => {
+      document.removeEventListener('mousedown', onDown);
+      document.removeEventListener('touchstart', onDown);
+      document.removeEventListener('keydown', onKey);
+    };
+  }, [langOpen]);
 
   // Unified high-performance scroll handler for scroll detection & scroll spy
   useEffect(() => {
@@ -116,7 +137,7 @@ export default function Navbar() {
             {/* Logo on the left */}
             <Link
               to="/#home"
-              className="flex items-center gap-2.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow rounded-xl p-0.5"
+              className="flex items-center gap-2 sm:gap-2.5 group min-w-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow rounded-xl p-0.5"
               aria-label="Ninamore Knowledge Academy Home"
             >
               <div className="relative flex-shrink-0 transition-transform duration-200 group-hover:scale-105">
@@ -139,7 +160,7 @@ export default function Navbar() {
                   </span>
                   <span className="hidden sm:inline-block w-1.5 h-1.5 rounded-none bg-brand-orange" />
                 </div>
-                <span className="font-heading font-medium text-[11px] sm:text-xs tracking-wide text-brand-yellow">
+                <span className="font-heading font-medium text-[11px] sm:text-xs tracking-wide text-brand-yellow whitespace-nowrap leading-tight">
                   Knowledge Academy
                 </span>
               </div>
@@ -183,9 +204,8 @@ export default function Navbar() {
                     onClick={() => setLang(l.code)}
                     aria-pressed={lang === l.code}
                     title={l.fullName}
-                    className={`px-2.5 py-1 text-xs font-semibold rounded-full transition-colors ${
-                      lang === l.code ? 'bg-brand-yellow text-brand-deep' : 'text-white hover:bg-white/10'
-                    }`}
+                    className={`px-2.5 py-1 text-xs font-semibold rounded-full transition-colors ${lang === l.code ? 'bg-brand-yellow text-brand-deep' : 'text-white hover:bg-white/10'
+                      }`}
                   >
                     {l.label}
                   </button>
@@ -200,29 +220,52 @@ export default function Navbar() {
               </Link>
             </div>
 
-            {/* Mobile Actions: Enquire + Hamburger */}
-            <div className="flex md:hidden items-center gap-2">
-              <div className="flex items-center rounded-full bg-white/10 p-0.5" role="group" aria-label="Language">
-                {languages.map((l) => (
-                  <button
-                    key={l.code}
-                    type="button"
-                    onClick={() => setLang(l.code)}
-                    aria-pressed={lang === l.code}
-                    className={`px-2 py-1 text-[11px] font-semibold rounded-full ${
-                      lang === l.code ? 'bg-brand-yellow text-brand-deep' : 'text-white'
-                    }`}
+            {/* Mobile Actions: Language dropdown + Hamburger */}
+            <div className="flex md:hidden items-center gap-1.5 shrink-0">
+              <div className="relative" ref={langRef}>
+                <button
+                  type="button"
+                  onClick={() => setLangOpen((o) => !o)}
+                  aria-haspopup="listbox"
+                  aria-expanded={langOpen}
+                  aria-label="Change language"
+                  className="flex items-center gap-1 h-9 px-2.5 rounded-full bg-white/10 border border-white/20 text-white text-xs font-semibold hover:bg-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow transition-colors"
+                >
+                  <Globe className="w-4 h-4 text-brand-yellow" />
+                  <span>{languages.find((l) => l.code === lang)?.label}</span>
+                  <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${langOpen ? 'rotate-180' : ''}`} />
+                </button>
+
+                {langOpen && (
+                  <ul
+                    role="listbox"
+                    aria-label="Language"
+                    className="absolute right-0 top-full mt-2 w-40 rounded-xl bg-[#2F1553] border border-white/15 shadow-xl shadow-black/40 p-1.5 z-50"
                   >
-                    {l.label}
-                  </button>
-                ))}
+                    {languages.map((l) => (
+                      <li key={l.code}>
+                        <button
+                          type="button"
+                          role="option"
+                          aria-selected={lang === l.code}
+                          onClick={() => {
+                            setLang(l.code);
+                            setLangOpen(false);
+                          }}
+                          className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm transition-colors ${lang === l.code
+                              ? 'bg-brand-yellow text-brand-deep font-bold'
+                              : 'text-white hover:bg-white/10'
+                            }`}
+                        >
+                          <span>{l.fullName}</span>
+                          {lang === l.code && <span aria-hidden="true">✓</span>}
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
-              <Link
-                to="/#admissions"
-                className="btn-primary"
-              >
-                <span>{t('nav.enquireNow')}</span>
-              </Link>
+
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -306,6 +349,29 @@ export default function Navbar() {
 
           {/* Drawer Footer */}
           <div className="p-4 border-t border-white/10 bg-[#2F1553] space-y-3">
+            {/* Language switch (moved here from the top bar on mobile) */}
+            <div>
+              <p className="text-[11px] uppercase tracking-wider text-purple-200 mb-2 font-semibold">
+                Language
+              </p>
+              <div className="grid grid-cols-3 gap-2" role="group" aria-label="Language">
+                {languages.map((l) => (
+                  <button
+                    key={l.code}
+                    type="button"
+                    onClick={() => setLang(l.code)}
+                    aria-pressed={lang === l.code}
+                    className={`h-10 rounded-xl text-sm font-semibold transition-colors ${lang === l.code
+                      ? 'bg-brand-yellow text-brand-deep'
+                      : 'bg-white/10 text-white hover:bg-white/20'
+                      }`}
+                  >
+                    {l.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
             <div className="text-xs text-purple-100 space-y-1.5">
               <a
                 href={CONTACT_INFO.mapLinkUrl}
