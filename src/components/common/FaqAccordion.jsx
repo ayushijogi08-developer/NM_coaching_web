@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
+import { useLanguage } from '../../i18n/LanguageContext';
 
 const FAQS = [
   {
@@ -20,6 +21,7 @@ const FAQS = [
 ];
 
 export default function FaqAccordion() {
+  const { t } = useLanguage();
   const [openId, setOpenId] = useState('demo-class'); // First item open by default
 
   const toggle = (id) => {
@@ -49,7 +51,7 @@ export default function FaqAccordion() {
             >
               <span className="font-heading font-bold text-base sm:text-lg text-brand-deep flex items-center gap-2.5">
                 <span className={`w-2 h-2 rounded-none transition-colors ${isOpen ? 'bg-brand-orange' : 'bg-brand-purple/40'}`} />
-                <span>{faq.question}</span>
+                <span>{t('faq.' + faq.id + '.q')}</span>
               </span>
 
               <div className={`w-7 h-7 rounded-xl flex items-center justify-center flex-shrink-0 transition-transform duration-200 ${
@@ -69,7 +71,7 @@ export default function FaqAccordion() {
               }`}
             >
               <p className="text-xs sm:text-sm text-[#5B4B75] leading-relaxed pt-2 border-t border-gray-100">
-                {faq.answer}
+                {t('faq.' + faq.id + '.a')}
               </p>
             </div>
           </div>

@@ -14,7 +14,7 @@ import { useLanguage } from '../i18n/LanguageContext';
  * - Concise Mission and Vision cards
  */
 export default function About() {
-  const { t } = useLanguage();
+  const { t, tr } = useLanguage();
 
   const teachingSteps = [
     {
@@ -52,7 +52,7 @@ export default function About() {
             </span>
             <div className="relative inline-block">
               <h2 className="font-heading font-bold text-2xl md:text-3xl text-brand-deep">
-                Empowering Aspirations in Alsi Plot, Akola
+                {tr("Empowering Aspirations in Alsi Plot, Akola")}
               </h2>
               <span
                 className="block h-1 w-20 mx-auto mt-2 rounded-full bg-gradient-to-r from-brand-orange to-brand-yellow"
@@ -60,7 +60,7 @@ export default function About() {
               />
             </div>
             <p className="text-[#5B4B75] mt-2 text-sm sm:text-base">
-              Dedicated to helping school and junior college learners build genuine conceptual strength and board confidence.
+              {tr("Dedicated to helping school and junior college learners build genuine conceptual strength and board confidence.")}
             </p>
           </div>
         </ScrollReveal>
@@ -73,13 +73,13 @@ export default function About() {
             <ScrollReveal variant="left">
               <div className="space-y-4">
                 <h3 className="font-heading font-bold text-xl sm:text-2xl text-brand-deep">
-                  Building Strong Fundamentals Since Day One
+                  {tr("Building Strong Fundamentals Since Day One")}
                 </h3>
                 <p className="text-[#5B4B75] text-[15px] sm:text-base leading-relaxed">
-                  At <strong className="text-brand-deep font-bold">Ninamore Knowledge Academy</strong>, we observed that many bright learners possessed high potential but lacked structured conceptual coaching, board exam answer-writing guidance, and personal mentorship.
+                  {tr("At")} <strong className="text-brand-deep font-bold">Ninamore Knowledge Academy</strong>{tr(", we observed that many bright learners possessed high potential but lacked structured conceptual coaching, board exam answer-writing guidance, and personal mentorship.")}
                 </p>
                 <p className="text-[#5B4B75] text-[15px] sm:text-base leading-relaxed">
-                  Our centre in Alsi Plot, Akola was founded to bridge this gap—providing dedicated school and board tutorials where textbook fundamentals meet rigorous application in an encouraging, disciplined atmosphere.
+                  {tr("Our centre in Alsi Plot, Akola was founded to bridge this gap—providing dedicated school and board tutorials where textbook fundamentals meet rigorous application in an encouraging, disciplined atmosphere.")}
                 </p>
               </div>
             </ScrollReveal>
@@ -99,7 +99,7 @@ export default function About() {
                       style={{ animationDuration: '4s' }}
                     >
                       <span className="w-2 h-2 rounded-full bg-white animate-ping" />
-                      <span>Admissions Open 2026</span>
+                      <span>{tr("Admissions Open 2026")}</span>
                     </div>
                   </div>
                 </div>
@@ -117,20 +117,19 @@ export default function About() {
                 </div>
 
                 <h3 className="font-heading font-bold text-xl text-white">
-                  Knowledge Beyond Books
+                  {tr("Knowledge Beyond Books")}
                 </h3>
 
                 <p className="text-sm text-purple-100 leading-relaxed font-normal">
-                  Our logo depicts an open book dissolving into progressive pixel squares. It reflects our core educational philosophy:
-                  timeless foundational knowledge transforming seamlessly into practical, real-world skills.
+                  {tr("Our logo depicts an open book dissolving into progressive pixel squares. It reflects our core educational philosophy: timeless foundational knowledge transforming seamlessly into practical, real-world skills.")}
                 </p>
 
                 <div className="pt-3 border-t border-white/15 flex items-center justify-between text-xs text-brand-yellow font-medium">
                   <span className="flex items-center gap-1.5">
                     <MapPin className="w-3.5 h-3.5 text-brand-orange" />
-                    <span>Manorama Bhavan, Alsi Plot 393</span>
+                    <span>{tr("Manorama Bhavan, Alsi Plot 393")}</span>
                   </span>
-                  <span>Akola 444001</span>
+                  <span>{tr("Akola 444001")}</span>
                 </div>
               </div>
             </ScrollReveal>
@@ -170,7 +169,7 @@ export default function About() {
                       {step.step}
                     </h4>
                     <p className="text-xs sm:text-[13px] text-[#5B4B75] leading-relaxed">
-                      {step.desc}
+                      {tr(step.desc)}
                     </p>
                   </div>
                 </div>
@@ -189,11 +188,10 @@ export default function About() {
                 <Target className="w-5 h-5" />
               </div>
               <h3 className="font-heading font-bold text-lg text-brand-deep mb-2">
-                Our Mission
+                {tr("Our Mission")}
               </h3>
               <p className="text-[#5B4B75] text-sm leading-relaxed">
-                To provide accessible, high-quality academic learning in Akola through structured,
-                concept-focused programs that cultivate intellectual confidence, strong fundamentals, and board examination success.
+                {tr("To provide accessible, high-quality academic learning in Akola through structured, concept-focused programs that cultivate intellectual confidence, strong fundamentals, and board examination success.")}
               </p>
             </div>
           </ScrollReveal>
@@ -205,11 +203,10 @@ export default function About() {
                 <Eye className="w-5 h-5" />
               </div>
               <h3 className="font-heading font-bold text-lg text-brand-deep mb-2">
-                Our Vision
+                {tr("Our Vision")}
               </h3>
               <p className="text-[#5B4B75] text-sm leading-relaxed">
-                To be Akola’s trusted benchmark in tutorial guidance, recognized
-                for transforming motivated learners into capable, confident, and ethically grounded achievers.
+                {tr("To be Akola’s trusted benchmark in tutorial guidance, recognized for transforming motivated learners into capable, confident, and ethically grounded achievers.")}
               </p>
             </div>
           </ScrollReveal>

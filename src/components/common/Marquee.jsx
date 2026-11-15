@@ -1,27 +1,21 @@
 import React from 'react';
 import { Sparkles } from 'lucide-react';
+import { useLanguage } from '../../i18n/LanguageContext';
 
-const DEFAULT_ITEMS = [
-  'CBSE Board',
-  'Maharashtra State Board',
-  'Class 5 to 10',
-  'Class 12 English',
-  'Doubt Solving',
-  'Weekly Tests',
-  'Small Batches',
-  'Parent Updates',
-];
+const DEFAULT_KEYS = ['cbse', 'state', 'class5to10', 'class12', 'doubts', 'tests', 'batches', 'parents'];
 
 /**
  * Infinite, seamless, pauses-on-hover horizontal ticker banner.
  * Yellow/orange text on a deep-purple band with star/dot icons.
  */
 export default function Marquee({
-  items = DEFAULT_ITEMS,
+  items,
   className = '',
   speed = 'normal', // 'normal' | 'slow'
 }) {
   const animClass = speed === 'slow' ? 'animate-marquee-slow' : 'animate-marquee';
+  const { t } = useLanguage();
+  const list = items || DEFAULT_KEYS.map((k) => t('marquee.' + k));
 
   return (
     <div
@@ -32,7 +26,7 @@ export default function Marquee({
       <div className="flex w-max group-hover:[animation-play-state:paused] focus-within:[animation-play-state:paused]">
         {/* Track 1 */}
         <div className={`flex items-center shrink-0 ${animClass}`}>
-          {items.map((item, idx) => (
+          {list.map((item, idx) => (
             <span key={`t1-${idx}`} className="inline-flex items-center text-xs sm:text-sm font-semibold tracking-wide">
               <span className="text-white hover:text-brand-yellow transition-colors whitespace-nowrap">
                 {item}
@@ -44,7 +38,7 @@ export default function Marquee({
 
         {/* Track 2 (Duplicate for seamless loop) */}
         <div className={`flex items-center shrink-0 ${animClass}`} aria-hidden="true">
-          {items.map((item, idx) => (
+          {list.map((item, idx) => (
             <span key={`t2-${idx}`} className="inline-flex items-center text-xs sm:text-sm font-semibold tracking-wide">
               <span className="text-white hover:text-brand-yellow transition-colors whitespace-nowrap">
                 {item}
@@ -56,7 +50,7 @@ export default function Marquee({
 
         {/* Track 3 (Extra buffer for ultra-wide displays) */}
         <div className={`flex items-center shrink-0 ${animClass}`} aria-hidden="true">
-          {items.map((item, idx) => (
+          {list.map((item, idx) => (
             <span key={`t3-${idx}`} className="inline-flex items-center text-xs sm:text-sm font-semibold tracking-wide">
               <span className="text-white hover:text-brand-yellow transition-colors whitespace-nowrap">
                 {item}

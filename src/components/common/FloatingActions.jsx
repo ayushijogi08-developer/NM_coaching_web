@@ -16,7 +16,7 @@ const WHATSAPP_PREFILLED_MSG = "Hi, I would like to know about batches at Ninamo
 const WHATSAPP_FULL_URL = `https://wa.me/${CONTACT_INFO.whatsappNumber}?text=${encodeURIComponent(WHATSAPP_PREFILLED_MSG)}`;
 
 export default function FloatingActions() {
-  const { t } = useLanguage();
+  const { t, tr } = useLanguage();
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [isKeyboardOpen, setIsKeyboardOpen] = useState(false);
 
@@ -109,7 +109,7 @@ export default function FloatingActions() {
         <div className="pointer-events-auto relative group">
           {/* Tooltip */}
           <span className="hidden lg:block absolute right-full top-1/2 -translate-y-1/2 mr-3 px-3 py-1.5 rounded-xl bg-brand-deep text-white text-xs font-medium whitespace-nowrap shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
-            Chat on WhatsApp
+            {tr("Chat on WhatsApp")}
             <span className="absolute left-full top-1/2 -translate-y-1/2 border-4 border-transparent border-l-brand-deep" />
           </span>
 

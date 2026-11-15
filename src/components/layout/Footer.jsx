@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { MapPin, Phone, Mail, Clock, ArrowRight, Instagram, Facebook, Youtube } from 'lucide-react';
 import PixelDisperseMotif from '../common/PixelDisperseMotif';
 import { CONTACT_INFO } from '../../data/contactConfig';
+import { useLanguage } from '../../i18n/LanguageContext';
 
 // WhatsApp SVG Icon
 function WhatsAppIcon({ className = 'w-5 h-5' }) {
@@ -14,6 +15,7 @@ function WhatsAppIcon({ className = 'w-5 h-5' }) {
 }
 
 export default function Footer() {
+  const { tr } = useLanguage();
   return (
     <footer className="relative bg-brand-deep text-white overflow-hidden pt-16 pb-[calc(6rem+env(safe-area-inset-bottom,0px))] md:pb-12 border-t-4 border-brand-orange">
       {/* Signature Design Motif: Small pixel squares fading out from top-right corner */}
@@ -47,14 +49,13 @@ export default function Footer() {
             </Link>
 
             <p className="text-sm text-purple-100 leading-relaxed">
-              Empowering students and professionals in Akola through practical, skill-based training,
-              modern tutorials, and career-advancing education.
+              {tr("Empowering students and professionals in Akola through practical, skill-based training, modern tutorials, and career-advancing education.")}
             </p>
 
             {/* Social Icons */}
             <div className="pt-2">
               <span className="text-xs uppercase tracking-wider text-brand-yellow font-semibold block mb-3">
-                Connect With Us
+                {tr("Connect With Us")}
               </span>
               <div className="flex items-center gap-3">
                 <a
@@ -101,49 +102,49 @@ export default function Footer() {
           <div>
             <h3 className="font-heading font-semibold text-base text-white tracking-wide mb-4 flex items-center gap-2">
               <span className="w-2 h-2 rounded-sm bg-brand-orange" />
-              Quick Links
+              {tr("Quick Links")}
             </h3>
             <ul className="space-y-2.5 text-sm">
               <li>
                 <Link to="/#home" className="text-purple-100 hover:text-brand-yellow transition-colors inline-flex items-center gap-1.5">
                   <ArrowRight className="w-3.5 h-3.5 text-brand-yellow/80" />
-                  <span>Home</span>
+                  <span>{tr("Home")}</span>
                 </Link>
               </li>
               <li>
                 <Link to="/#about" className="text-purple-100 hover:text-brand-yellow transition-colors inline-flex items-center gap-1.5">
                   <ArrowRight className="w-3.5 h-3.5 text-brand-yellow/80" />
-                  <span>About Academy</span>
+                  <span>{tr("About Academy")}</span>
                 </Link>
               </li>
               <li>
                 <Link to="/#courses" className="text-purple-100 hover:text-brand-yellow transition-colors inline-flex items-center gap-1.5">
                   <ArrowRight className="w-3.5 h-3.5 text-brand-yellow/80" />
-                  <span>Courses & Programs</span>
+                  <span>{tr("Courses & Programs")}</span>
                 </Link>
               </li>
               <li>
                 <Link to="/#mentors" className="text-purple-100 hover:text-brand-yellow transition-colors inline-flex items-center gap-1.5">
                   <ArrowRight className="w-3.5 h-3.5 text-brand-yellow/80" />
-                  <span>Meet the Mentors</span>
+                  <span>{tr("Meet the Mentors")}</span>
                 </Link>
               </li>
               <li>
                 <Link to="/#gallery" className="text-purple-100 hover:text-brand-yellow transition-colors inline-flex items-center gap-1.5">
                   <ArrowRight className="w-3.5 h-3.5 text-brand-yellow/80" />
-                  <span>Gallery</span>
+                  <span>{tr("Gallery")}</span>
                 </Link>
               </li>
               <li>
                 <Link to="/#contact" className="text-purple-100 hover:text-brand-yellow transition-colors inline-flex items-center gap-1.5">
                   <ArrowRight className="w-3.5 h-3.5 text-brand-yellow/80" />
-                  <span>Contact Us</span>
+                  <span>{tr("Contact Us")}</span>
                 </Link>
               </li>
               <li>
                 <Link to="/#admissions" className="text-brand-yellow hover:text-white transition-colors inline-flex items-center gap-1.5 font-medium pt-1">
                   <ArrowRight className="w-3.5 h-3.5 text-brand-yellow" />
-                  <span>Admissions & Enquiry</span>
+                  <span>{tr("Admissions & Enquiry")}</span>
                 </Link>
               </li>
             </ul>
@@ -153,32 +154,32 @@ export default function Footer() {
           <div>
             <h3 className="font-heading font-semibold text-base text-white tracking-wide mb-4 flex items-center gap-2">
               <span className="w-2 h-2 rounded-sm bg-brand-yellow" />
-              Featured Courses
+              {tr("Featured Courses")}
             </h3>
             <ul className="space-y-2.5 text-sm text-purple-100">
               <li>
                 <Link to="/#courses" className="hover:text-white transition-colors">
-                  CBSE and State Board, Classes 5 to 10
+                  {tr("CBSE and State Board, Classes 5 to 10")}
                 </Link>
               </li>
               <li>
                 <Link to="/#courses" className="hover:text-white transition-colors">
-                  English, Class 12
+                  {tr("English, Class 12")}
                 </Link>
               </li>
               <li>
                 <Link to="/#courses" className="hover:text-white transition-colors">
-                  Subject-Wise Coaching
+                  {tr("Subject-Wise Coaching")}
                 </Link>
               </li>
               <li>
                 <Link to="/#courses" className="hover:text-white transition-colors">
-                  Exam Preparation
+                  {tr("Exam Preparation")}
                 </Link>
               </li>
               <li>
                 <Link to="/#courses" className="hover:text-white transition-colors">
-                  Personalized Learning Support
+                  {tr("Personalized Learning Support")}
                 </Link>
               </li>
             </ul>
@@ -188,7 +189,7 @@ export default function Footer() {
           <div>
             <h3 className="font-heading font-semibold text-base text-white tracking-wide mb-4 flex items-center gap-2">
               <span className="w-2 h-2 rounded-sm bg-white" />
-              Contact Info
+              {tr("Contact Info")}
             </h3>
             <ul className="space-y-3.5 text-sm text-purple-100">
               <li className="flex items-start gap-2.5">
@@ -200,14 +201,14 @@ export default function Footer() {
                   className="leading-snug hover:text-brand-yellow transition-colors"
                   aria-label="Open academy location on Google Maps"
                 >
-                  Manorama Bhavan, Alsi Plot 393, Alsi Plot, Akola – 444001, Maharashtra.
+                  {tr("Manorama Bhavan, Alsi Plot 393, Alsi Plot, Akola – 444001, Maharashtra.")}
                 </a>
               </li>
               <li className="flex items-start gap-2.5">
                 <Clock className="w-4 h-4 text-brand-yellow flex-shrink-0 mt-0.5" />
                 <div>
-                  <span className="block font-medium text-white">Monday–Sunday</span>
-                  <span className="text-xs text-purple-100">11:00 am – 8:00 pm</span>
+                  <span className="block font-medium text-white">{tr("Monday–Sunday")}</span>
+                  <span className="text-xs text-purple-100">{tr("11:00 am – 8:00 pm")}</span>
                 </div>
               </li>
               <li className="flex items-center gap-2.5">
@@ -229,11 +230,11 @@ export default function Footer() {
 
         {/* Bottom Bar: Copyright */}
         <div className="pt-8 sm:pr-20 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-purple-100">
-          <p>© 2026 Ninamore Knowledge Academy. All rights reserved.</p>
+          <p>{tr("© 2026 Ninamore Knowledge Academy. All rights reserved.")}</p>
           <div className="flex items-center gap-3">
-            <span>Skill Development & Tutorials</span>
+            <span>{tr("Skill Development & Tutorials")}</span>
             <span>•</span>
-            <span>Akola, Maharashtra</span>
+            <span>{tr("Akola, Maharashtra")}</span>
           </div>
         </div>
       </div>

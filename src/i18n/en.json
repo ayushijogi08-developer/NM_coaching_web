@@ -90,5 +90,32 @@
   "mobileBar": {
     "call": "Call",
     "whatsapp": "WhatsApp"
+  },
+  "marquee": {
+    "cbse": "CBSE Board",
+    "state": "Maharashtra State Board",
+    "class5to10": "Class 5 to 10",
+    "class12": "Class 12 English",
+    "doubts": "Doubt Solving",
+    "tests": "Weekly Tests",
+    "batches": "Small Batches",
+    "parents": "Parent Updates"
+  },
+  "faq": {
+    "badge": "Clear Answers",
+    "title": "Frequently Asked Questions",
+    "subtitle": "Common questions about demo classes, curriculum coverage, and batch timings.",
+    "demo-class": {
+      "q": "How does the Free Demo Class work and how do I register?",
+      "a": "The trial class is completely free with no commitment. Students can attend a live session, experience our interactive teaching approach, and discuss their syllabus goals with our subject faculty. Parents are welcome to join for personalized counseling."
+    },
+    "curriculum": {
+      "q": "Which educational boards and classes are covered?",
+      "a": "We offer structured coaching for CBSE and Maharashtra State Board students from Classes 5 to 10 across core subjects, as well as dedicated board exam batches for Class 12 English."
+    },
+    "campus-location": {
+      "q": "Where is the academy located and what are the center timings?",
+      "a": "We are conveniently located at Manorama Bhavan, Alsi Plot 393, Akola – 444001, Maharashtra. The academy is open Monday through Sunday from 11:00 AM to 8:00 PM for classroom batches, doubt resolution, and parent counseling."
+    }
   }
 }

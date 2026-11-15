@@ -12,7 +12,7 @@ import ScrollReveal from './ScrollReveal';
  * seat availability status badges, and official transparent fee contact notice.
  */
 export default function BatchTimings() {
-  const { t } = useLanguage();
+  const { t, tr } = useLanguage();
 
   return (
     <section id="batch-timings" className="py-12 md:py-16 bg-white">
@@ -57,7 +57,7 @@ export default function BatchTimings() {
                       {/* Top Slot Header + Seat Badge */}
                       <div className="flex items-center justify-between gap-2 mb-3">
                         <span className="text-xs font-bold uppercase tracking-wider text-brand-purple">
-                          {batch.slot}
+                          {tr(batch.slot)}
                         </span>
                         
                         {/* Status Badge */}
@@ -79,30 +79,30 @@ export default function BatchTimings() {
 
                       {/* Batch Name */}
                       <h3 className="font-heading font-bold text-base text-brand-deep mb-2">
-                        {batch.name}
+                        {tr(batch.name)}
                       </h3>
 
                       {/* Time Slot */}
                       <div className="flex items-center gap-2 text-xs font-semibold text-[#B45309] bg-amber-50/70 p-2 rounded-xl mb-3 border border-amber-200/50">
                         <Clock className="w-3.5 h-3.5 shrink-0 text-brand-orange" />
-                        <span>{batch.time}</span>
+                        <span>{tr(batch.time)}</span>
                       </div>
 
                       {/* Days & Target Audience */}
                       <div className="space-y-1.5 text-xs text-[#5B4B75] mb-3">
                         <div className="flex items-center gap-1.5">
                           <Calendar className="w-3.5 h-3.5 text-brand-purple shrink-0" />
-                          <span>{batch.days}</span>
+                          <span>{tr(batch.days)}</span>
                         </div>
                         <div className="flex items-start gap-1.5">
                           <Users className="w-3.5 h-3.5 text-brand-deep shrink-0 mt-0.5" />
-                          <span className="font-medium text-brand-deep">{batch.targetAudience}</span>
+                          <span className="font-medium text-brand-deep">{tr(batch.targetAudience)}</span>
                         </div>
                       </div>
 
                       {/* Highlight Note */}
                       <p className="text-[11px] text-[#5B4B75] italic leading-relaxed pt-2 border-t border-gray-100">
-                        "{batch.highlight}"
+                        "{tr(batch.highlight)}"
                       </p>
                     </div>
 
@@ -112,7 +112,7 @@ export default function BatchTimings() {
                         href="#admissions"
                         className="btn-primary btn-sm w-full"
                       >
-                        <span>Reserve Seat</span>
+                        <span>{tr("Reserve Seat")}</span>
                         <ArrowRight className="w-3.5 h-3.5" />
                       </a>
                     </div>
@@ -134,13 +134,13 @@ export default function BatchTimings() {
                   className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-purple hover:text-brand-orange transition-colors"
                 >
                   <Phone className="w-3.5 h-3.5" />
-                  <span>Call {CONTACT_INFO.phoneDisplay}</span>
+                  <span>{tr('Call')} {CONTACT_INFO.phoneDisplay}</span>
                 </a>
                 <a
                   href="#admissions"
                   className="btn-primary btn-sm shrink-0"
                 >
-                  <span>Book Demo</span>
+                  <span>{tr("Book Demo")}</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </a>
               </div>

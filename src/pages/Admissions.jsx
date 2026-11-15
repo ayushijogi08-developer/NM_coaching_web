@@ -73,7 +73,7 @@ function WhatsAppIcon({ className = 'w-4 h-4' }) {
 }
 
 export default function Admissions() {
-  const { t } = useLanguage();
+  const { t, tr } = useLanguage();
   const [searchParams] = useSearchParams();
   const preselectedCourseId = searchParams.get('course') || '';
 
@@ -230,11 +230,11 @@ export default function Admissions() {
         <ScrollReveal variant="up">
           <div className="text-center max-w-3xl mx-auto mb-10">
             <span className="inline-block text-xs font-semibold uppercase tracking-wider text-[#B45309] bg-amber-50 border border-amber-200/60 px-3 py-1 rounded-full mb-2">
-              Admissions 2026
+              {tr("Admissions 2026")}
             </span>
             <div className="relative inline-block">
               <h2 className="font-heading font-bold text-2xl md:text-3xl text-brand-deep">
-                Join Ninamore Knowledge Academy
+                {tr("Join Ninamore Knowledge Academy")}
               </h2>
               <span
                 className="block h-1 w-20 mx-auto mt-2 rounded-full bg-gradient-to-r from-brand-orange to-brand-yellow"
@@ -242,7 +242,7 @@ export default function Admissions() {
               />
             </div>
             <p className="text-[#5B4B75] mt-2 text-sm sm:text-base">
-              Follow our simple 4-step process and reserve your complimentary demo class.
+              {tr("Follow our simple 4-step process and reserve your complimentary demo class.")}
             </p>
           </div>
         </ScrollReveal>
@@ -290,16 +290,16 @@ export default function Admissions() {
                       </div>
 
                       <h3 className="font-heading font-bold text-base text-brand-deep mb-1 group-hover:text-brand-purple transition-colors">
-                        {stepItem.title}
+                        {tr(stepItem.title)}
                       </h3>
 
                       <p className="text-[#5B4B75] text-xs leading-relaxed">
-                        {stepItem.description}
+                        {tr(stepItem.description)}
                       </p>
                     </div>
 
                     <div className="mt-4 pt-2.5 border-t border-gray-100 flex items-center justify-between text-xs text-brand-purple font-semibold">
-                      <span>Step {idx + 1} of 4</span>
+                      <span>{tr('Step')} {idx + 1} {tr('of')} 4</span>
                       <span
                         className={`w-2 h-2 rounded-full transition-colors duration-500 ${
                           isLit ? 'bg-brand-orange' : 'bg-gray-300'
@@ -340,16 +340,15 @@ export default function Admissions() {
                     {t('form.successTitle')}
                   </h4>
                   <p className="text-xs sm:text-sm text-emerald-700 max-w-md mx-auto leading-relaxed">
-                    Thank you, <span className="font-bold">{formData.fullName}</span>. We have received your request for{' '}
-                    <span className="font-bold text-brand-deep underline">{formData.courseInterested}</span>. 
-                    We will get in touch at <span className="font-bold">{formData.phone}</span> shortly.
+                    {tr("Thank you,")} <span className="font-bold">{formData.fullName}</span>. We have received your request for{' '}
+                    <span className="font-bold text-brand-deep underline">{formData.courseInterested}</span>{tr(". We will get in touch at")} <span className="font-bold">{formData.phone}</span> {tr("shortly.")}
                   </p>
                   <div className="pt-2">
                     <button
                       onClick={handleReset}
                       className="btn-primary"
                     >
-                      Submit Another Enquiry
+                      {tr("Submit Another Enquiry")}
                     </button>
                   </div>
                 </div>
@@ -460,7 +459,7 @@ export default function Admissions() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="group">
                       <label htmlFor="courseInterested" className="block text-xs font-semibold text-brand-deep uppercase tracking-wider mb-1 group-focus-within:text-brand-purple transition-colors">
-                        {t('form.board')} / Course <span className="text-[#B45309] font-bold">*</span>
+                        {t('form.board')} / {tr('Course')} <span className="text-[#B45309] font-bold">*</span>
                       </label>
                       <select
                         id="courseInterested"
@@ -473,10 +472,10 @@ export default function Admissions() {
                             : 'border-gray-200 focus:border-brand-purple focus:ring-brand-purple/15 hover:border-gray-300'
                         }`}
                       >
-                        <option value="">Select a Course...</option>
+                        <option value="">{tr("Select a Course...")}</option>
                         {COURSES_DATA.map((c) => (
                           <option key={c.id} value={c.title}>
-                            {c.title}
+                            {tr(c.title)}
                           </option>
                         ))}
                       </select>
@@ -516,10 +515,10 @@ export default function Admissions() {
                       onChange={handleChange}
                       className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-sm text-brand-dark transition-all duration-200 focus:outline-none focus:border-brand-purple focus:ring-4 focus:ring-brand-purple/15 hover:border-gray-300"
                     >
-                      <option value="Midday Batch (11:30 AM – 02:00 PM)">Midday Batch (11:30 AM – 02:00 PM)</option>
-                      <option value="Afternoon Batch (02:30 PM – 05:00 PM)">Afternoon Batch (02:30 PM – 05:00 PM)</option>
-                      <option value="Evening Batch (05:30 PM – 08:00 PM)">Evening Batch (05:30 PM – 08:00 PM)</option>
-                      <option value="Weekend Special Doubt Session">Weekend Special Doubt Session</option>
+                      <option value="Midday Batch (11:30 AM – 02:00 PM)">{tr("Midday Batch (11:30 AM – 02:00 PM)")}</option>
+                      <option value="Afternoon Batch (02:30 PM – 05:00 PM)">{tr("Afternoon Batch (02:30 PM – 05:00 PM)")}</option>
+                      <option value="Evening Batch (05:30 PM – 08:00 PM)">{tr("Evening Batch (05:30 PM – 08:00 PM)")}</option>
+                      <option value="Weekend Special Doubt Session">{tr("Weekend Special Doubt Session")}</option>
                     </select>
                   </div>
 
@@ -573,9 +572,9 @@ export default function Admissions() {
                 </div>
                 <div>
                   <h3 className="font-heading font-bold text-base text-brand-deep">
-                    Why Enroll at Ninamore?
+                    {tr("Why Enroll at Ninamore?")}
                   </h3>
-                  <span className="text-xs text-[#5B4B75]">Alsi Plot, Akola Centre</span>
+                  <span className="text-xs text-[#5B4B75]">{tr("Alsi Plot, Akola Centre")}</span>
                 </div>
               </div>
 
@@ -583,21 +582,21 @@ export default function Admissions() {
                 {WHY_ENROLL.map((benefit, idx) => (
                   <li key={idx} className="flex items-start gap-2">
                     <CheckCircle2 className="w-4 h-4 text-brand-orange flex-shrink-0 mt-0.5" />
-                    <span>{benefit}</span>
+                    <span>{tr(benefit)}</span>
                   </li>
                 ))}
               </ul>
 
               <div className="mt-5 pt-4 border-t border-gray-100 flex items-center justify-between text-xs text-brand-deep font-semibold">
-                <span>CBSE & Maharashtra State Board</span>
-                <span>Classes 5–12</span>
+                <span>{tr("CBSE & Maharashtra State Board")}</span>
+                <span>{tr("Classes 5–12")}</span>
               </div>
             </div>
 
             {/* Direct Phone & WhatsApp Actions in Enquiry Section */}
             <div className="bg-white border border-[#6B3FA0]/10 rounded-2xl p-5 shadow-sm space-y-3">
               <h4 className="font-heading font-bold text-sm text-brand-deep">
-                Prefer to speak directly?
+                {tr("Prefer to speak directly?")}
               </h4>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                 <a
@@ -608,7 +607,7 @@ export default function Admissions() {
                     <Phone className="w-4 h-4" />
                   </div>
                   <div className="text-left">
-                    <span className="text-xs text-[#5B4B75] block leading-tight">Call Academy</span>
+                    <span className="text-xs text-[#5B4B75] block leading-tight">{tr("Call Academy")}</span>
                     <span className="text-xs font-bold">{CONTACT_INFO.phoneDisplay}</span>
                   </div>
                 </a>
@@ -624,13 +623,13 @@ export default function Admissions() {
                   </div>
                   <div className="text-left">
                     <span className="text-xs text-emerald-700 block leading-tight">WhatsApp</span>
-                    <span className="text-xs font-bold">Chat with us</span>
+                    <span className="text-xs font-bold">{tr("Chat with us")}</span>
                   </div>
                 </a>
               </div>
               <div className="pt-2 text-xs text-[#5B4B75] flex items-center justify-between border-t border-gray-100">
-                <span>Manorama Bhavan, Alsi Plot</span>
-                <span>Open 11 AM – 8 PM</span>
+                <span>{tr("Manorama Bhavan, Alsi Plot")}</span>
+                <span>{tr("Open 11 AM – 8 PM")}</span>
               </div>
             </div>
 

@@ -14,7 +14,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 import { CONTACT_INFO } from '../data/contactConfig';
 
 export default function Home() {
-  const { t } = useLanguage();
+  const { t, tr } = useLanguage();
 
   const handleScrollToAbout = (e) => {
     e.preventDefault();
@@ -171,15 +171,15 @@ export default function Home() {
                 aria-label="Open academy location on Google Maps"
               >
                 <MapPin className="w-3.5 h-3.5 text-brand-yellow" />
-                <span>Alsi Plot 393, Akola</span>
+                <span>{tr("Alsi Plot 393, Akola")}</span>
               </a>
               <div className="flex items-center gap-1.5">
                 <CheckCircle2 className="w-3.5 h-3.5 text-brand-yellow" />
-                <span>Small Batch Focus</span>
+                <span>{tr("Small Batch Focus")}</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <Clock className="w-3.5 h-3.5 text-brand-yellow" />
-                <span>Mon–Sun: 11 AM – 8 PM</span>
+                <span>{tr("Mon–Sun: 11 AM – 8 PM")}</span>
               </div>
             </div>
 
@@ -202,7 +202,7 @@ export default function Home() {
           className="group flex flex-col items-center gap-1 text-purple-200/75 hover:text-white transition-colors duration-200 focus:outline-none"
         >
           <span className="text-[10px] font-semibold tracking-widest uppercase opacity-75 group-hover:opacity-100 transition-opacity">
-            Scroll
+            {tr("Scroll")}
           </span>
           <div className="w-5 h-8 rounded-full border-2 border-white/35 group-hover:border-white/80 flex items-start justify-center p-1 transition-colors">
             <div className="w-1 h-2 rounded-full bg-brand-yellow animate-bounce" />

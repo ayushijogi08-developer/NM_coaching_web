@@ -20,6 +20,7 @@ import {
 import ScrollReveal from '../components/common/ScrollReveal';
 import CourseDetailModal from '../components/courses/CourseDetailModal';
 import { COURSES_DATA, COURSE_CATEGORIES } from '../data/coursesData';
+import { useLanguage } from '../i18n/LanguageContext';
 
 // Map icon string names to actual Lucide components
 const ICON_MAP = {
@@ -72,6 +73,7 @@ const getCategoryTheme = (category) => {
 };
 
 export default function Courses() {
+  const { tr } = useLanguage();
   const [activeCategory, setActiveCategory] = useState('All');
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState(null);
@@ -108,11 +110,11 @@ export default function Courses() {
         <ScrollReveal variant="up">
           <div className="text-center max-w-3xl mx-auto mb-8">
             <span className="inline-block text-xs font-semibold uppercase tracking-wider text-[#B45309] bg-amber-50 border border-amber-200/60 px-3 py-1 rounded-full mb-2">
-              Curriculum & Programs
+              {tr("Curriculum & Programs")}
             </span>
             <div className="relative inline-block">
               <h2 className="font-heading font-bold text-2xl md:text-3xl text-brand-deep">
-                Available Courses in Akola
+                {tr("Available Courses in Akola")}
               </h2>
               {/* Subtle animated underline drawing in on view */}
               <span
@@ -121,7 +123,7 @@ export default function Courses() {
               />
             </div>
             <p className="text-[#5B4B75] mt-2 text-sm sm:text-base">
-              Structured academic programs for CBSE and Maharashtra State Board learners.
+              {tr("Structured academic programs for CBSE and Maharashtra State Board learners.")}
             </p>
 
             {/* Category Filter Pills with smooth switching animation */}
@@ -143,7 +145,7 @@ export default function Courses() {
                     }`}
                     aria-pressed={isActive}
                   >
-                    <span>{cat}</span>
+                    <span>{tr(cat)}</span>
                     <span className={`px-1.5 py-0.5 rounded-full text-xs transition-colors ${
                       isActive ? 'bg-white/20 text-white' : 'bg-gray-100 text-gray-700'
                     }`}>
@@ -192,20 +194,20 @@ export default function Courses() {
                           {/* Distinct category pill badge */}
                           <span className={`text-xs font-semibold px-2.5 py-0.5 rounded-full flex items-center gap-1 ${theme.badge}`}>
                             <span className={`w-1.5 h-1.5 rounded-full ${theme.accentDot}`} />
-                            <span>{course.category}</span>
+                            <span>{tr(course.category)}</span>
                           </span>
                           <span className="text-xs text-gray-600 font-medium">
-                            {course.level}
+                            {tr(course.level)}
                           </span>
                         </div>
                       </div>
 
                       <h3 className="font-heading font-bold text-lg text-brand-deep mb-2 leading-snug group-hover:text-brand-purple transition-colors duration-200">
-                        {course.title}
+                        {tr(course.title)}
                       </h3>
 
                       <p className="text-[#5B4B75] text-[15px] leading-[1.6] mb-5 line-clamp-3">
-                        {course.shortDescription}
+                        {tr(course.shortDescription)}
                       </p>
 
                       {/* Metadata tags */}
@@ -213,18 +215,18 @@ export default function Courses() {
                         <div className="flex items-center justify-between">
                           <span className="flex items-center gap-1.5 font-medium">
                             <Clock className="w-3.5 h-3.5 text-brand-orange" />
-                            <span>Duration:</span>
+                            <span>{tr("Duration:")}</span>
                           </span>
-                          <span className="font-semibold text-brand-deep">{course.duration}</span>
+                          <span className="font-semibold text-brand-deep">{tr(course.duration)}</span>
                         </div>
 
                         <div className="flex items-center justify-between">
                           <span className="flex items-center gap-1.5 font-medium">
                             <MapPin className="w-3.5 h-3.5 text-brand-purple" />
-                            <span>Mode:</span>
+                            <span>{tr("Mode:")}</span>
                           </span>
                           <span className="font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full text-xs">
-                            Offline Classroom
+                            {tr("Offline Classroom")}
                           </span>
                         </div>
                       </div>
@@ -239,7 +241,7 @@ export default function Courses() {
                         className="btn-secondary-light flex-1"
                       >
                         <Eye className="w-4 h-4" />
-                        <span>Details</span>
+                        <span>{tr("Details")}</span>
                         <ArrowRight className="w-3.5 h-3.5" />
                       </button>
 
@@ -248,7 +250,7 @@ export default function Courses() {
                         aria-label={`Enquire about ${course.title}`}
                         className="btn-primary flex-1"
                       >
-                        <span>Enquire</span>
+                        <span>{tr("Enquire")}</span>
                         <ArrowRight className="w-3.5 h-3.5" />
                       </Link>
                     </div>

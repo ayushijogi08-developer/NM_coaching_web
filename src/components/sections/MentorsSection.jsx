@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Sparkles, ArrowRight, X, ChevronRight, RotateCcw, CheckCircle2 } from 'lucide-react';
 import ScrollReveal from '../common/ScrollReveal';
 import { MENTORS_DATA } from '../../data/mentorsData';
+import { useLanguage } from '../../i18n/LanguageContext';
 
 /**
  * Meet the Mentors Section
@@ -16,6 +17,7 @@ import { MENTORS_DATA } from '../../data/mentorsData';
  *   with visible peek of the next card and interactive indicator dots.
  */
 export default function MentorsSection() {
+  const { tr } = useLanguage();
   const [flippedCardId, setFlippedCardId] = useState(null);
   const [activeMobileIndex, setActiveMobileIndex] = useState(0);
   const carouselRef = useRef(null);
@@ -62,11 +64,11 @@ export default function MentorsSection() {
         <ScrollReveal variant="up">
           <div className="text-center max-w-3xl mx-auto mb-10">
             <span className="inline-block text-xs font-semibold uppercase tracking-wider text-[#B45309] bg-amber-50 border border-amber-200/60 px-3 py-1 rounded-full mb-2">
-              Academic Mentors
+              {tr("Academic Mentors")}
             </span>
             <div className="relative inline-block">
               <h2 className="font-heading font-bold text-2xl md:text-3xl text-brand-deep">
-                Meet the Mentors
+                {tr("Meet the Mentors")}
               </h2>
               <span
                 className="block h-1 w-20 mx-auto mt-2 rounded-full bg-gradient-to-r from-brand-orange to-brand-yellow"
@@ -74,7 +76,7 @@ export default function MentorsSection() {
               />
             </div>
             <p className="text-[#5B4B75] mt-2 text-sm sm:text-base">
-              Dedicated subject guides delivering conceptual clarity, board excellence, and structured personal mentorship in Alsi Plot, Akola.
+              {tr("Dedicated subject guides delivering conceptual clarity, board excellence, and structured personal mentorship in Alsi Plot, Akola.")}
             </p>
           </div>
         </ScrollReveal>
@@ -145,18 +147,18 @@ export default function MentorsSection() {
                             </div>
 
                             <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-white text-brand-deep border border-[#6B3FA0]/15 shadow-xs">
-                              {mentor.badge}
+                              {tr(mentor.badge)}
                             </span>
                           </div>
 
                           {/* Mentor Role */}
                           <h3 className="font-heading font-bold text-base sm:text-lg text-brand-deep mb-1 group-hover:text-brand-purple transition-colors leading-snug">
-                            {mentor.role}
+                            {tr(mentor.role)}
                           </h3>
 
                           {/* Short Quote / Teaching Style */}
                           <p className="text-xs text-[#5B4B75] leading-relaxed mb-3 italic line-clamp-3">
-                            "{mentor.teachingStyle}"
+                            "{tr(mentor.teachingStyle)}"
                           </p>
 
                           {/* Subject Chips */}
@@ -166,7 +168,7 @@ export default function MentorsSection() {
                                 key={sIdx}
                                 className="text-[11px] font-medium px-2 py-0.5 rounded-md bg-white text-brand-deep border border-gray-200/90 shadow-2xs"
                               >
-                                {sub}
+                                {tr(sub)}
                               </span>
                             ))}
                           </div>
@@ -174,9 +176,9 @@ export default function MentorsSection() {
 
                         {/* Bottom Action: Read Bio Button */}
                         <div className="pt-3 border-t border-[#6B3FA0]/10 flex items-center justify-between text-xs text-brand-purple font-semibold">
-                          <span className="text-[11px] text-[#5B4B75] font-normal">Tap or click</span>
+                          <span className="text-[11px] text-[#5B4B75] font-normal">{tr("Tap or click")}</span>
                           <span className="inline-flex items-center gap-1 text-brand-purple group-hover:text-brand-orange transition-colors">
-                            <span>Read bio & focus</span>
+                            <span>{tr("Read bio & focus")}</span>
                             <ChevronRight className="w-3.5 h-3.5 transform group-hover:translate-x-0.5 transition-transform" />
                           </span>
                         </div>
@@ -195,7 +197,7 @@ export default function MentorsSection() {
                         <div>
                           <div className="flex items-center justify-between mb-2">
                             <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-white/15 text-brand-yellow">
-                              {mentor.badge}
+                              {tr(mentor.badge)}
                             </span>
 
                             {/* Close / Flip Back Button */}
@@ -214,23 +216,23 @@ export default function MentorsSection() {
 
                           {/* Role Heading */}
                           <h4 className="font-heading font-bold text-sm sm:text-base text-white mb-1.5 leading-snug">
-                            {mentor.role}
+                            {tr(mentor.role)}
                           </h4>
 
                           {/* Short Bio */}
                           <p className="text-xs text-purple-100 leading-relaxed font-normal mb-3">
-                            {mentor.bio}
+                            {tr(mentor.bio)}
                           </p>
 
                           {/* Mentorship Focus Bullets (Merged from About section) */}
                           <div className="space-y-1.5 pt-2 border-t border-white/15">
                             <span className="text-[10px] font-bold uppercase tracking-wider text-brand-yellow block">
-                              Core Focus Areas
+                              {tr("Core Focus Areas")}
                             </span>
                             {mentor.focusBullets?.map((bullet, bIdx) => (
                               <div key={bIdx} className="flex items-start gap-1.5 text-xs text-purple-100">
                                 <CheckCircle2 className="w-3.5 h-3.5 text-brand-yellow shrink-0 mt-0.5" />
-                                <span className="leading-tight">{bullet}</span>
+                                <span className="leading-tight">{tr(bullet)}</span>
                               </div>
                             ))}
                           </div>
@@ -239,7 +241,7 @@ export default function MentorsSection() {
                         {/* Back Face Footer Actions */}
                         <div className="pt-2.5 border-t border-white/15 space-y-1.5">
                           <div className="flex items-center justify-between">
-                            <span className="text-[11px] text-brand-yellow font-medium">Alsi Plot, Akola</span>
+                            <span className="text-[11px] text-brand-yellow font-medium">{tr("Alsi Plot, Akola")}</span>
 
                             {/* Ask a Question Primary Button */}
                             <a
@@ -247,7 +249,7 @@ export default function MentorsSection() {
                               onClick={(e) => e.stopPropagation()}
                               className="btn-primary"
                             >
-                              <span>Ask a question</span>
+                              <span>{tr("Ask a question")}</span>
                               <ArrowRight className="w-3.5 h-3.5" />
                             </a>
                           </div>
@@ -262,7 +264,7 @@ export default function MentorsSection() {
                             className="w-full text-center text-xs text-purple-200 hover:text-white flex items-center justify-center gap-1.5 transition-colors py-2 min-h-[44px] rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow"
                           >
                             <RotateCcw className="w-3.5 h-3.5 text-brand-yellow" />
-                            <span>Flip back to card</span>
+                            <span>{tr("Flip back to card")}</span>
                           </button>
                         </div>
 
@@ -280,7 +282,7 @@ export default function MentorsSection() {
         {/* Mobile Swipe & Tap Hint */}
         <div className="flex md:hidden items-center justify-center gap-1.5 mt-3 text-xs text-[#5B4B75]">
           <span className="w-1.5 h-1.5 rounded-full bg-brand-orange animate-pulse" />
-          <span>Swipe to explore mentors • Tap card to flip & view focus</span>
+          <span>{tr("Swipe to explore mentors • Tap card to flip & view focus")}</span>
         </div>
 
         {/* Mobile Carousel Pagination Dots */}

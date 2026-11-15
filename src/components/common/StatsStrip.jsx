@@ -11,6 +11,7 @@ import {
   Building2, 
   ShieldCheck 
 } from 'lucide-react';
+import { useLanguage } from '../../i18n/LanguageContext';
 
 /**
  * Verified statistics directly from Ninamore Knowledge Academy site facts:
@@ -93,6 +94,7 @@ const WHY_ADVANTAGES = [
 ];
 
 function StatCard({ stat }) {
+  const { tr } = useLanguage();
   const [count, ref] = useCountUp(stat.target || 0, 1500);
 
   let displayedNumber = stat.valueDisplay;
@@ -116,11 +118,11 @@ function StatCard({ stat }) {
       <div className="flex items-start justify-between gap-2 mb-3">
         <div className="flex items-baseline whitespace-nowrap bg-gradient-to-r from-[#F6B93B] to-[#F28C28] bg-clip-text text-transparent">
           <span className="text-3xl sm:text-4xl lg:text-5xl font-heading font-extrabold tracking-tight">
-            {displayedNumber}
+            {tr(displayedNumber)}
           </span>
           {unit && (
             <span className="text-xl sm:text-2xl font-heading font-bold ml-1.5 sm:ml-2">
-              {unit}
+              {tr(unit)}
             </span>
           )}
         </div>
@@ -132,10 +134,10 @@ function StatCard({ stat }) {
       {/* Bottom Row Pinned: Title + Sublabel */}
       <div className="mt-auto pt-2">
         <div className="text-sm sm:text-base font-bold text-white mb-0.5 leading-snug">
-          {stat.label}
+          {tr(stat.label)}
         </div>
         <div className="text-xs text-purple-100 leading-relaxed font-normal">
-          {stat.sublabel}
+          {tr(stat.sublabel)}
         </div>
       </div>
     </div>
@@ -143,6 +145,7 @@ function StatCard({ stat }) {
 }
 
 export default function StatsStrip({ stats = STATS_CONFIG, className = '' }) {
+  const { tr } = useLanguage();
   return (
     <section className={`py-12 md:py-16 bg-gradient-to-r from-brand-deep via-[#4E2486] to-brand-deep text-white relative overflow-hidden ${className}`}>
       {/* Background glow highlights */}
@@ -156,10 +159,10 @@ export default function StatsStrip({ stats = STATS_CONFIG, className = '' }) {
           <ScrollReveal variant="up">
             <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
               <span className="inline-block text-xs font-semibold uppercase tracking-wider text-brand-yellow bg-white/10 px-3 py-1 rounded-full mb-2">
-                Our Academic Footprint
+                {tr("Our Academic Footprint")}
               </span>
               <h2 className="font-heading font-bold text-2xl sm:text-3xl text-white">
-                Academy Highlights at a Glance
+                {tr("Academy Highlights at a Glance")}
               </h2>
             </div>
           </ScrollReveal>
@@ -177,10 +180,10 @@ export default function StatsStrip({ stats = STATS_CONFIG, className = '' }) {
           <ScrollReveal variant="up">
             <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8">
               <h3 className="font-heading font-bold text-xl sm:text-2xl text-white">
-                The Ninamore Advantage
+                {tr("The Ninamore Advantage")}
               </h3>
               <p className="text-xs sm:text-sm text-purple-100 mt-1">
-                Core teaching values and learning environment features trusted by Akola families.
+                {tr("Core teaching values and learning environment features trusted by Akola families.")}
               </p>
             </div>
           </ScrollReveal>
@@ -198,10 +201,10 @@ export default function StatsStrip({ stats = STATS_CONFIG, className = '' }) {
                   </div>
                   <div>
                     <h4 className="font-heading font-bold text-sm sm:text-base text-white mb-0.5">
-                      {adv.title}
+                      {tr(adv.title)}
                     </h4>
                     <p className="text-xs text-purple-100 leading-relaxed font-normal">
-                      {adv.description}
+                      {tr(adv.description)}
                     </p>
                   </div>
                 </div>

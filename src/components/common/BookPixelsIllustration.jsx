@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Clock, Sparkles } from 'lucide-react';
+import { useLanguage } from '../../i18n/LanguageContext';
 
 /**
  * Custom SVG & CSS illustration of an open book breaking into floating pixels
@@ -7,6 +8,7 @@ import { Clock, Sparkles } from 'lucide-react';
  * Features a desktop mouse-follow 3D tilt/parallax (max ~8deg) with graceful fallback for touch and reduced-motion.
  */
 export default function BookPixelsIllustration() {
+  const { tr } = useLanguage();
   const cardRef = useRef(null);
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
@@ -81,7 +83,7 @@ export default function BookPixelsIllustration() {
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
             <span className="w-2 h-2 rounded-full bg-emerald-400 -ml-3" />
             <Clock className="w-3.5 h-3.5 text-brand-yellow ml-0.5" />
-            <span className="font-medium tracking-wide">Open today 11 AM – 8 PM</span>
+            <span className="font-medium tracking-wide">{tr("Open today 11 AM – 8 PM")}</span>
           </div>
         </div>
 
@@ -190,7 +192,7 @@ export default function BookPixelsIllustration() {
         <div className="mt-2 pt-4 border-t border-white/10 flex items-center justify-between text-left">
           <div>
             <span className="text-xs font-semibold tracking-wide text-brand-yellow block">
-              Skill & Tutorial Institute
+              {tr("Skill & Tutorial Institute")}
             </span>
             <span className="text-xs sm:text-sm font-heading font-semibold text-white">
               Ninamore Knowledge Academy
@@ -198,7 +200,7 @@ export default function BookPixelsIllustration() {
           </div>
           <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-brand-orange/30 border border-brand-orange/50 text-xs font-semibold text-brand-yellow">
             <Sparkles className="w-3.5 h-3.5 text-brand-yellow" />
-            <span>Akola, MH</span>
+            <span>{tr("Akola, MH")}</span>
           </div>
         </div>
 

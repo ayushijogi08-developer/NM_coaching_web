@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X, ArrowRight, MapPin, Clock } from 'lucide-react';
 import { CONTACT_INFO } from '../../data/contactConfig';
+import { useLanguage } from '../../i18n/LanguageContext';
 
 const NAV_LINKS = [
   { name: 'Home', id: 'home' },
@@ -28,6 +29,7 @@ const SECTION_MAP = [
 ];
 
 export default function Navbar() {
+  const { lang, setLang, languages, t } = useLanguage();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState('home');
@@ -156,7 +158,7 @@ export default function Navbar() {
                       : 'text-purple-100 font-medium hover:text-white hover:bg-white/10'
                       }`}
                   >
-                    <span>{link.name}</span>
+                    <span>{t('nav.' + link.id)}</span>
 
                     {/* Animated Active-Section Underline */}
                     <span
@@ -173,22 +175,53 @@ export default function Navbar() {
 
             {/* Right: Enquire Now Button */}
             <div className="hidden md:flex items-center gap-3">
+              <div className="flex items-center rounded-full bg-white/10 p-1" role="group" aria-label="Language">
+                {languages.map((l) => (
+                  <button
+                    key={l.code}
+                    type="button"
+                    onClick={() => setLang(l.code)}
+                    aria-pressed={lang === l.code}
+                    title={l.fullName}
+                    className={`px-2.5 py-1 text-xs font-semibold rounded-full transition-colors ${
+                      lang === l.code ? 'bg-brand-yellow text-brand-deep' : 'text-white hover:bg-white/10'
+                    }`}
+                  >
+                    {l.label}
+                  </button>
+                ))}
+              </div>
               <Link
                 to="/#admissions"
                 className="btn-primary"
               >
-                <span>Enquire Now</span>
+                <span>{t('nav.enquireNow')}</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
 
             {/* Mobile Actions: Enquire + Hamburger */}
             <div className="flex md:hidden items-center gap-2">
+              <div className="flex items-center rounded-full bg-white/10 p-0.5" role="group" aria-label="Language">
+                {languages.map((l) => (
+                  <button
+                    key={l.code}
+                    type="button"
+                    onClick={() => setLang(l.code)}
+                    aria-pressed={lang === l.code}
+                    className={`px-2 py-1 text-[11px] font-semibold rounded-full ${
+                      lang === l.code ? 'bg-brand-yellow text-brand-deep' : 'text-white'
+                    }`}
+                  >
+                    {l.label}
+                  </button>
+                ))}
+              </div>
               <Link
                 to="/#admissions"
                 className="btn-primary"
               >
-                <span>Enquire Now</span>
+                <span>{t('nav.enquireNow')}</span>
               </Link>
               <button
                 type="button"
@@ -264,7 +297,7 @@ export default function Navbar() {
                     : 'text-purple-100 font-medium hover:bg-white/10 hover:text-white'
                     }`}
                 >
-                  <span>{link.name}</span>
+                  <span>{t('nav.' + link.id)}</span>
                   <ArrowRight className={`w-4 h-4 ${isActive ? 'text-brand-yellow' : 'opacity-60'}`} />
                 </Link>
               );
@@ -282,11 +315,11 @@ export default function Navbar() {
                 aria-label="Open academy location on Google Maps"
               >
                 <MapPin className="w-3.5 h-3.5 text-brand-yellow shrink-0" />
-                <span>Alsi Plot 393, Akola</span>
+                <span>{t('nav.addressShort')}</span>
               </a>
               <p className="flex items-center gap-2 text-xs text-purple-100">
                 <Clock className="w-3 h-3 text-brand-yellow shrink-0" />
-                <span>Mon–Sun: 11:00 AM – 8:00 PM</span>
+                <span>{t('nav.hoursShort')}</span>
               </p>
             </div>
             <Link
@@ -294,7 +327,7 @@ export default function Navbar() {
               onClick={() => setMobileMenuOpen(false)}
               className="btn-primary w-full"
             >
-              <span>Enquire Now</span>
+              <span>{t('nav.enquireNow')}</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>

@@ -9,6 +9,7 @@ import {
 } from 'lucide-react';
 import ScrollReveal from '../components/common/ScrollReveal';
 import { CONTACT_INFO } from '../data/contactConfig';
+import { useLanguage } from '../i18n/LanguageContext';
 
 // WhatsApp SVG Icon
 function WhatsAppIcon({ className = 'w-5 h-5' }) {
@@ -20,6 +21,7 @@ function WhatsAppIcon({ className = 'w-5 h-5' }) {
 }
 
 export default function Contact() {
+  const { tr } = useLanguage();
   const [isOpenNow, setIsOpenNow] = useState(false);
 
   useEffect(() => {
@@ -35,13 +37,13 @@ export default function Contact() {
         <ScrollReveal>
           <div className="text-center max-w-3xl mx-auto mb-8">
             <span className="inline-block text-xs font-semibold uppercase tracking-wider text-[#B45309] bg-amber-50 border border-amber-200/60 px-3 py-1 rounded-full mb-2">
-              Get In Touch
+              {tr("Get In Touch")}
             </span>
             <h2 className="font-heading font-bold text-2xl md:text-3xl text-brand-deep">
-              Visit Our Campus or Reach Out
+              {tr("Visit Our Campus or Reach Out")}
             </h2>
             <p className="text-[#5B4B75] mt-2 text-sm sm:text-base">
-              Our Alsi Plot centre is open 7 days a week from 11:00 AM to 8:00 PM.
+              {tr("Our Alsi Plot centre is open 7 days a week from 11:00 AM to 8:00 PM.")}
             </p>
           </div>
         </ScrollReveal>
@@ -57,14 +59,14 @@ export default function Contact() {
                   <MapPin className="w-5 h-5" />
                 </div>
                 <h3 className="font-heading font-bold text-base text-brand-deep mb-1.5">
-                  Academy Address
+                  {tr("Academy Address")}
                 </h3>
                 <p className="text-xs sm:text-sm text-[#5B4B75] leading-relaxed">
-                  Manorama Bhavan, Alsi Plot 393, Akola – 444001, Maharashtra.
+                  {tr("Manorama Bhavan, Alsi Plot 393, Akola – 444001, Maharashtra.")}
                 </p>
               </div>
               <div className="mt-4 pt-3 border-t border-gray-100 text-xs text-brand-purple font-semibold">
-                Landmark: Near Khandelwal Bhawan
+                {tr("Landmark: Near Khandelwal Bhawan")}
               </div>
             </div>
           </ScrollReveal>
@@ -77,10 +79,10 @@ export default function Contact() {
                   <Phone className="w-5 h-5" />
                 </div>
                 <h3 className="font-heading font-bold text-base text-brand-deep mb-1.5">
-                  Call Directly
+                  {tr("Call Directly")}
                 </h3>
                 <p className="text-xs sm:text-sm text-[#5B4B75] leading-relaxed">
-                  Reach our counseling desk for batch and admission enquiries.
+                  {tr("Reach our counseling desk for batch and admission enquiries.")}
                 </p>
                 <a 
                   href={CONTACT_INFO.phoneTel} 
@@ -90,7 +92,7 @@ export default function Contact() {
                 </a>
               </div>
               <div className="mt-4 pt-3 border-t border-gray-100 text-xs text-[#5B4B75]">
-                Available 11:00 AM – 8:00 PM
+                {tr("Available 11:00 AM – 8:00 PM")}
               </div>
             </div>
           </ScrollReveal>
@@ -103,10 +105,10 @@ export default function Contact() {
                   <WhatsAppIcon className="w-5 h-5" />
                 </div>
                 <h3 className="font-heading font-bold text-base text-brand-deep mb-1.5">
-                  WhatsApp Enquiry
+                  {tr("WhatsApp Enquiry")}
                 </h3>
                 <p className="text-xs sm:text-sm text-[#5B4B75] leading-relaxed">
-                  Send a quick message to check seat availability and timings.
+                  {tr("Send a quick message to check seat availability and timings.")}
                 </p>
                 <a 
                   href={CONTACT_INFO.whatsappUrl}
@@ -114,11 +116,11 @@ export default function Contact() {
                   rel="noopener noreferrer" 
                   className="inline-flex items-center mt-2 text-sm font-bold text-emerald-700 hover:underline min-h-[44px]"
                 >
-                  Chat on WhatsApp
+                  {tr("Chat on WhatsApp")}
                 </a>
               </div>
               <div className="mt-4 pt-3 border-t border-gray-100 text-xs text-emerald-700 font-medium">
-                Instant response during hours
+                {tr("Instant response during hours")}
               </div>
             </div>
           </ScrollReveal>
@@ -134,19 +136,19 @@ export default function Contact() {
                   <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${
                     isOpenNow ? 'bg-emerald-100 text-emerald-700' : 'bg-gray-100 text-brand-dark'
                   }`}>
-                    {isOpenNow ? 'Open Now' : 'Closed Now'}
+                    {isOpenNow ? tr('Open Now') : tr('Closed Now')}
                   </span>
                 </div>
                 <h3 className="font-heading font-bold text-base text-brand-deep mb-1.5">
-                  Center Hours
+                  {tr("Center Hours")}
                 </h3>
                 <p className="text-xs sm:text-sm text-[#5B4B75] leading-relaxed">
-                  Monday to Sunday<br />
-                  <span className="font-semibold text-brand-deep">11:00 AM – 08:00 PM</span>
+                  {tr("Monday to Sunday")}<br />
+                  <span className="font-semibold text-brand-deep">{tr("11:00 AM – 08:00 PM")}</span>
                 </p>
               </div>
               <div className="mt-4 pt-3 border-t border-gray-100 text-xs text-brand-purple font-semibold">
-                Open 7 Days a Week
+                {tr("Open 7 Days a Week")}
               </div>
             </div>
           </ScrollReveal>
@@ -158,7 +160,7 @@ export default function Contact() {
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-4">
             <div>
               <h3 className="font-heading font-bold text-lg text-brand-deep">
-                Academy Location
+                {tr("Academy Location")}
               </h3>
               <p className="text-xs text-[#5B4B75]">
                 {CONTACT_INFO.address.full}
@@ -171,7 +173,7 @@ export default function Contact() {
                 rel="noopener noreferrer"
                 className="btn-primary flex-1 sm:flex-initial"
               >
-                <span>Get Directions</span>
+                <span>{tr("Get Directions")}</span>
                 <ExternalLink className="w-3.5 h-3.5" />
               </a>
               <a
@@ -180,7 +182,7 @@ export default function Contact() {
                 rel="noopener noreferrer"
                 className="btn-secondary-light flex-1 sm:flex-initial"
               >
-                <span>Open in Maps</span>
+                <span>{tr("Open in Maps")}</span>
                 <ExternalLink className="w-3.5 h-3.5" />
               </a>
             </div>

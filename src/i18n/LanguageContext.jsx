@@ -2,6 +2,7 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 import en from './en.json';
 import hi from './hi.json';
 import mr from './mr.json';
+import { TR } from './extra';
 
 const DICTIONARIES = { en, hi, mr };
 
@@ -15,6 +16,7 @@ const LanguageContext = createContext({
   lang: 'en',
   setLang: () => {},
   t: (path) => path,
+  tr: (text) => text,
   languages: LANGUAGES,
 });
 
@@ -68,8 +70,17 @@ export function LanguageProvider({ children }) {
     return current;
   };
 
+  // Translate any English text using the extra dictionary (falls back to English)
+  const tr = (text) => {
+    const dict = TR[lang];
+    if (dict && typeof text === 'string' && Object.prototype.hasOwnProperty.call(dict, text)) {
+      return dict[text];
+    }
+    return text;
+  };
+
   return (
-    <LanguageContext.Provider value={{ lang, setLang, t, languages: LANGUAGES }}>
+    <LanguageContext.Provider value={{ lang, setLang, t, tr, languages: LANGUAGES }}>
       {children}
     </LanguageContext.Provider>
   );

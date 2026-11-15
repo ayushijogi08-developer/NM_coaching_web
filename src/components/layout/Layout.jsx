@@ -5,12 +5,14 @@ import Footer from './Footer';
 import FloatingActions from '../common/FloatingActions';
 import PageLoader from '../common/PageLoader';
 import ScrollProgress from '../common/ScrollProgress';
+import { useLanguage } from '../../i18n/LanguageContext';
 
 /**
  * Main Layout wrapper providing persistent Navbar, dynamic Outlet, Footer,
  * Floating WhatsApp trigger, sticky mobile bar, and back-to-top button.
  */
 export default function Layout() {
+  const { tr } = useLanguage();
   const { pathname, hash } = useLocation();
 
   useEffect(() => {
@@ -41,7 +43,7 @@ export default function Layout() {
         href="#main-content"
         className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[90] focus:btn-primary"
       >
-        Skip to main content
+        {tr("Skip to main content")}
       </a>
 
       {/* Global Reusable Header & Navigation */}

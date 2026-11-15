@@ -9,6 +9,7 @@ import FreeDemoBanner from '../components/common/FreeDemoBanner';
 import SectionDivider from '../components/common/SectionDivider';
 import ScrollReveal from '../components/common/ScrollReveal';
 import { CONTACT_INFO } from '../data/contactConfig';
+import { useLanguage } from '../i18n/LanguageContext';
 
 // Below-the-fold components lazy-loaded for performance and code splitting
 const About = lazy(() => import('./About'));
@@ -33,6 +34,7 @@ function SectionLoader() {
 }
 
 export default function OnePage() {
+  const { t, tr } = useLanguage();
   return (
     <>
       {/* 1. Hero Section (Deep Purple - Eager) */}
@@ -129,11 +131,11 @@ export default function OnePage() {
             <ScrollReveal variant="up">
               <div className="text-center max-w-3xl mx-auto mb-8">
                 <span className="inline-block text-xs font-semibold uppercase tracking-wider text-[#B45309] bg-amber-50 border border-amber-200/60 px-3 py-1 rounded-full mb-2">
-                  Clear Answers
+                  {t('faq.badge')}
                 </span>
                 <div className="relative inline-block">
                   <h2 className="font-heading font-bold text-2xl md:text-3xl text-brand-deep">
-                    Frequently Asked Questions
+                    {t('faq.title')}
                   </h2>
                   <span
                     className="block h-1 w-20 mx-auto mt-2 rounded-full bg-gradient-to-r from-brand-orange to-brand-yellow"
@@ -141,7 +143,7 @@ export default function OnePage() {
                   />
                 </div>
                 <p className="text-[#5B4B75] mt-2 text-sm sm:text-base">
-                  Common questions about demo classes, curriculum coverage, and batch timings.
+                  {t('faq.subtitle')}
                 </p>
               </div>
             </ScrollReveal>
@@ -172,20 +174,20 @@ export default function OnePage() {
       <section className="py-12 md:py-16 bg-gradient-to-r from-brand-deep via-[#5A2E94] to-brand-purple text-white text-center">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
           <span className="inline-block text-xs font-semibold uppercase tracking-wider text-brand-yellow bg-white/10 px-3 py-1 rounded-full">
-            Start Your Journey
+            {tr("Start Your Journey")}
           </span>
           <h2 className="font-heading font-bold text-2xl sm:text-3xl text-white">
-            Ready to Experience Learning at Ninamore?
+            {tr("Ready to Experience Learning at Ninamore?")}
           </h2>
           <p className="text-purple-100 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-            Reserve a complimentary trial class or visit our centre at Alsi Plot, Akola to meet our mentors.
+            {tr("Reserve a complimentary trial class or visit our centre at Alsi Plot, Akola to meet our mentors.")}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
             <Link
               to="/#admissions"
               className="btn-primary btn-primary-lg w-full sm:w-auto"
             >
-              <span>Book a Free Demo</span>
+              <span>{tr("Book a Free Demo")}</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
             <a

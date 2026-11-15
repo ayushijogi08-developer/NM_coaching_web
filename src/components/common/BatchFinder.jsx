@@ -32,7 +32,7 @@ const GOALS = [
 ];
 
 export default function BatchFinder() {
-  const { t } = useLanguage();
+  const { t, tr } = useLanguage();
   const [step, setStep] = useState(1);
   const [selectedClass, setSelectedClass] = useState('');
   const [selectedBoard, setSelectedBoard] = useState('');
@@ -131,9 +131,9 @@ export default function BatchFinder() {
             <div className="flex items-center justify-between text-xs font-semibold text-brand-deep mb-2">
               <span className="flex items-center gap-1.5 text-brand-purple">
                 <Compass className="w-3.5 h-3.5 text-brand-orange" />
-                <span>{step <= 3 ? `Step ${step} of 3` : 'Your Recommended Batch'}</span>
+                <span>{step <= 3 ? `${tr('Step')} ${step} ${tr('of')} 3` : tr('Your Recommended Batch')}</span>
               </span>
-              <span className="text-[#5B4B75] font-medium">{progressPercent}% Completed</span>
+              <span className="text-[#5B4B75] font-medium">{progressPercent}% {tr('Completed')}</span>
             </div>
             <div className="w-full h-2 bg-purple-100 rounded-full overflow-hidden">
               <div
@@ -156,7 +156,7 @@ export default function BatchFinder() {
                   {t('quiz.step1Title')}
                 </h3>
                 <p className="text-xs text-[#5B4B75] text-center mb-6">
-                  Select your academic level below.
+                  {tr("Select your academic level below.")}
                 </p>
 
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 max-w-xl mx-auto">
@@ -167,10 +167,10 @@ export default function BatchFinder() {
                       className="py-4 px-3 rounded-2xl border-2 border-purple-100 hover:border-brand-purple hover:bg-purple-50/50 hover:shadow-md active:scale-95 transition-all text-center group focus:outline-none"
                     >
                       <span className="block font-heading font-extrabold text-2xl text-brand-deep group-hover:text-brand-purple transition-colors">
-                        Class {cls}
+                        {tr('Class')} {cls}
                       </span>
                       <span className="text-[11px] text-[#5B4B75]">
-                        {cls === '12' ? 'Higher Secondary' : 'School Level'}
+                        {cls === '12' ? tr('Higher Secondary') : tr('School Level')}
                       </span>
                     </button>
                   ))}
@@ -187,7 +187,7 @@ export default function BatchFinder() {
                     className="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-purple hover:text-brand-orange transition-colors min-h-[44px] py-2 px-2 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-purple"
                   >
                     <ArrowLeft className="w-3.5 h-3.5" />
-                    <span>Back to Class</span>
+                    <span>{tr("Back to Class")}</span>
                   </button>
                   <span className="text-xs font-bold text-[#B45309] px-2.5 py-0.5 rounded-full bg-amber-50 border border-amber-200/80">
                     Selected: Class {selectedClass}
@@ -198,7 +198,7 @@ export default function BatchFinder() {
                   {t('quiz.step2Title')}
                 </h3>
                 <p className="text-xs text-[#5B4B75] text-center mb-6">
-                  We specialize in both major curriculum tracks in Akola.
+                  {tr("We specialize in both major curriculum tracks in Akola.")}
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-lg mx-auto">
@@ -213,9 +213,9 @@ export default function BatchFinder() {
                       </div>
                       <div>
                         <span className="block font-heading font-bold text-base text-brand-deep group-hover:text-brand-purple transition-colors">
-                          {b.label}
+                          {tr(b.label)}
                         </span>
-                        <span className="text-xs text-[#5B4B75]">{b.subtitle}</span>
+                        <span className="text-xs text-[#5B4B75]">{tr(b.subtitle)}</span>
                       </div>
                     </button>
                   ))}
@@ -232,7 +232,7 @@ export default function BatchFinder() {
                     className="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-purple hover:text-brand-orange transition-colors min-h-[44px] py-2 px-2 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-purple"
                   >
                     <ArrowLeft className="w-3.5 h-3.5" />
-                    <span>Back to Board</span>
+                    <span>{tr("Back to Board")}</span>
                   </button>
                   <span className="text-xs font-bold text-[#B45309] px-2.5 py-0.5 rounded-full bg-amber-50 border border-amber-200/80">
                     Class {selectedClass} • {selectedBoard}
@@ -243,7 +243,7 @@ export default function BatchFinder() {
                   {t('quiz.step3Title')}
                 </h3>
                 <p className="text-xs text-[#5B4B75] text-center mb-6">
-                  Select the area where you want the highest improvement.
+                  {tr("Select the area where you want the highest improvement.")}
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 max-w-xl mx-auto">
@@ -254,10 +254,10 @@ export default function BatchFinder() {
                       className="p-4 rounded-2xl border-2 border-purple-100 hover:border-brand-purple hover:bg-purple-50/50 hover:shadow-md active:scale-95 transition-all text-left group focus:outline-none"
                     >
                       <span className="block font-heading font-bold text-sm sm:text-base text-brand-deep group-hover:text-brand-purple transition-colors mb-0.5">
-                        {g.title}
+                        {tr(g.title)}
                       </span>
                       <span className="text-xs text-[#5B4B75] leading-relaxed">
-                        {g.desc}
+                        {tr(g.desc)}
                       </span>
                     </button>
                   ))}
@@ -274,32 +274,32 @@ export default function BatchFinder() {
                 </div>
 
                 <h3 className="font-heading font-bold text-xl sm:text-2xl text-brand-deep mb-1">
-                  {recommendedCourse.title}
+                  {tr(recommendedCourse.title)}
                 </h3>
                 <p className="text-xs sm:text-sm text-[#5B4B75] max-w-lg mx-auto mb-6">
-                  Tailored specifically for <strong className="text-brand-deep">Class {selectedClass} ({selectedBoard})</strong> focusing on <strong className="text-brand-purple">{selectedGoal}</strong>.
+                  {tr("Tailored specifically for")} <strong className="text-brand-deep">Class {selectedClass} ({selectedBoard})</strong> {tr("focusing on")} <strong className="text-brand-purple">{selectedGoal}</strong>.
                 </p>
 
                 {/* Recommended Course Card Box */}
                 <div className="bg-[#F5F0FA] border border-[#6B3FA0]/15 rounded-2xl p-5 sm:p-6 text-left max-w-xl mx-auto mb-6 space-y-3">
                   <div className="flex items-center justify-between text-xs text-brand-purple font-semibold">
-                    <span>{recommendedCourse.category}</span>
+                    <span>{tr(recommendedCourse.category)}</span>
                     <span className="text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full">
-                      Offline at Alsi Plot
+                      {tr("Offline at Alsi Plot")}
                     </span>
                   </div>
 
                   <p className="text-xs sm:text-sm text-brand-deep leading-relaxed">
-                    {recommendedCourse.shortDescription}
+                    {tr(recommendedCourse.shortDescription)}
                   </p>
 
                   <div className="pt-2 border-t border-purple-200/60 flex flex-wrap items-center justify-between gap-2 text-xs text-[#5B4B75]">
                     <span className="flex items-center gap-1 font-medium">
                       <Clock className="w-3.5 h-3.5 text-brand-orange" />
-                      <span>{recommendedCourse.duration}</span>
+                      <span>{tr(recommendedCourse.duration)}</span>
                     </span>
                     <span className="font-bold text-brand-deep">
-                      Morning, Midday & Evening slots
+                      {tr("Morning, Midday & Evening slots")}
                     </span>
                   </div>
                 </div>

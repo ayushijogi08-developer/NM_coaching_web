@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import ScrollReveal from '../components/common/ScrollReveal';
 import { GALLERY_ITEMS } from '../data/galleryData';
+import { useLanguage } from '../i18n/LanguageContext';
 
 // Available gallery categories
 const CATEGORIES = ['All', 'Classroom', 'Events', 'Students'];
@@ -20,6 +21,7 @@ const CATEGORIES = ['All', 'Classroom', 'Events', 'Students'];
  * and gentle hover zoom scale-[1.03].
  */
 function GalleryCard({ item, onClick, cardRef }) {
+  const { tr } = useLanguage();
   const [imgSrc, setImgSrc] = useState(`/gallery/${item.image}`);
   const [hasError, setHasError] = useState(false);
 
@@ -73,7 +75,7 @@ function GalleryCard({ item, onClick, cardRef }) {
         {/* Category Badge at Top-Left */}
         <div className="absolute top-3 left-3 z-20">
           <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-md text-brand-deep shadow-sm border border-gray-100">
-            {item.category}
+            {tr(item.category)}
           </span>
         </div>
 
@@ -89,11 +91,11 @@ function GalleryCard({ item, onClick, cardRef }) {
       <div className="p-4 sm:p-5 bg-white flex flex-col flex-grow justify-between border-t border-gray-100">
         <div>
           <h3 className="text-brand-deep font-heading font-semibold text-base leading-snug group-hover:text-brand-purple transition-colors">
-            {item.title}
+            {tr(item.title)}
           </h3>
           {item.caption && (
             <p className="text-[#5B4B75] text-sm line-clamp-2 mt-1.5 leading-relaxed">
-              {item.caption}
+              {tr(item.caption)}
             </p>
           )}
         </div>
@@ -103,6 +105,7 @@ function GalleryCard({ item, onClick, cardRef }) {
 }
 
 export default function Gallery() {
+  const { tr } = useLanguage();
   const [activeCategory, setActiveCategory] = useState('All');
   const [lightboxIndex, setLightboxIndex] = useState(null);
   const [lightboxSrc, setLightboxSrc] = useState('');
@@ -241,11 +244,11 @@ export default function Gallery() {
         <ScrollReveal variant="up">
           <div className="text-center max-w-3xl mx-auto mb-8">
             <span className="inline-block text-xs font-semibold uppercase tracking-wider text-[#B45309] bg-amber-50 border border-amber-200/60 px-3 py-1 rounded-full mb-2">
-              Campus Gallery
+              {tr("Campus Gallery")}
             </span>
             <div className="relative inline-block">
               <h2 className="font-heading font-bold text-2xl md:text-3xl text-brand-deep">
-                Life at Ninamore Knowledge Academy
+                {tr("Life at Ninamore Knowledge Academy")}
               </h2>
               <span
                 className="block h-1 w-20 mx-auto mt-2 rounded-full bg-gradient-to-r from-brand-orange to-brand-yellow"
@@ -253,7 +256,7 @@ export default function Gallery() {
               />
             </div>
             <p className="text-[#5B4B75] mt-2 text-sm sm:text-base">
-              A glimpse of learning, collaboration, and mentorship at our Alsi Plot centre.
+              {tr("A glimpse of learning, collaboration, and mentorship at our Alsi Plot centre.")}
             </p>
 
             {/* Filter Pills */}
@@ -277,7 +280,7 @@ export default function Gallery() {
                       }`}
                     aria-pressed={isActive}
                   >
-                    <span>{cat}</span>
+                    <span>{tr(cat)}</span>
                     <span className={`px-1.5 py-0.5 rounded-full text-xs ${isActive ? 'bg-white/20 text-white' : 'bg-gray-100 text-gray-700'
                       }`}>
                       {count}
@@ -370,19 +373,19 @@ export default function Gallery() {
             <div className="p-4 sm:p-5 bg-brand-deep text-white border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
               <div>
                 <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-brand-yellow text-brand-dark mr-2">
-                  {currentLightboxItem.category}
+                  {tr(currentLightboxItem.category)}
                 </span>
                 <span className="font-heading font-bold text-base text-white">
-                  {currentLightboxItem.title}
+                  {tr(currentLightboxItem.title)}
                 </span>
                 {currentLightboxItem.caption && (
                   <p className="text-xs text-purple-100 font-light mt-1">
-                    {currentLightboxItem.caption}
+                    {tr(currentLightboxItem.caption)}
                   </p>
                 )}
               </div>
               <div className="text-xs text-brand-yellow flex-shrink-0 font-medium">
-                Alsi Plot, Akola
+                {tr("Alsi Plot, Akola")}
               </div>
             </div>
           </div>
