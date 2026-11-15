@@ -153,19 +153,24 @@ export default function About() {
             </div>
           </ScrollReveal>
 
-          <Stagger variant="scale" step={90} className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
+          <Stagger
+            variant="scale"
+            step={90}
+            className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5 items-stretch"
+            itemClassName="h-full"
+          >
             {teachingSteps.map((step, idx) => {
               const Icon = step.icon;
               return (
                 <div
                   key={idx}
-                  className="bg-white border border-[#6B3FA0]/10 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all duration-200 flex items-start gap-4"
+                  className="h-full bg-white border border-[#6B3FA0]/10 rounded-2xl p-5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex items-start gap-4"
                 >
                   <div className={`w-12 h-12 rounded-2xl ${step.color} border flex items-center justify-center shrink-0 shadow-xs`}>
                     <Icon className={`w-6 h-6 ${step.iconAnim}`} />
                   </div>
-                  <div>
-                    <h4 className="font-heading font-bold text-base text-brand-deep mb-1">
+                  <div className="min-w-0">
+                    <h4 className="font-heading font-bold text-base text-brand-deep mb-1.5">
                       {step.step}
                     </h4>
                     <p className="text-xs sm:text-[13px] text-[#5B4B75] leading-relaxed">

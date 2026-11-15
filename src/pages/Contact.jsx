@@ -155,51 +155,63 @@ export default function Contact() {
 
         </div>
 
-        {/* Embedded Google Map */}
-        <div className="rounded-2xl overflow-hidden bg-white border border-[#6B3FA0]/10 shadow-sm p-4 sm:p-6">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-4">
-            <div>
-              <h3 className="font-heading font-bold text-lg text-brand-deep">
-                {tr("Academy Location")}
-              </h3>
-              <p className="text-xs text-[#5B4B75]">
-                {CONTACT_INFO.address.full}
-              </p>
-            </div>
-            <div className="flex flex-wrap items-center gap-2.5">
-              <a
-                href={CONTACT_INFO.directionsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary flex-1 sm:flex-initial"
-              >
-                <span>{tr("Get Directions")}</span>
-                <ExternalLink className="w-3.5 h-3.5" />
-              </a>
-              <a
-                href={CONTACT_INFO.mapLinkUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-secondary-light flex-1 sm:flex-initial"
-              >
-                <span>{tr("Open in Maps")}</span>
-                <ExternalLink className="w-3.5 h-3.5" />
-              </a>
-            </div>
-          </div>
+        {/* Embedded Google Map: compact two-column card */}
+        <div className="rounded-2xl overflow-hidden bg-white border border-[#6B3FA0]/10 shadow-sm">
+          <div className="grid grid-cols-1 lg:grid-cols-5">
 
-          <div className="w-full h-[300px] md:h-[400px] rounded-xl overflow-hidden bg-gray-100">
-            <iframe
-              title="Ninamore Knowledge Academy location on Google Maps"
-              src={CONTACT_INFO.mapEmbedUrl}
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="w-full h-full"
-            />
+            {/* Left: details + buttons */}
+            <div className="lg:col-span-2 p-5 sm:p-6 flex flex-col justify-center gap-4">
+              <div>
+                <h3 className="font-heading font-bold text-lg text-brand-deep">
+                  {tr("Academy Location")}
+                </h3>
+                <p className="flex items-start gap-2 text-sm text-[#5B4B75] mt-2 leading-relaxed">
+                  <MapPin className="w-4 h-4 text-brand-orange shrink-0 mt-0.5" />
+                  <span>{CONTACT_INFO.address.full}</span>
+                </p>
+                <p className="flex items-center gap-2 text-sm text-[#5B4B75] mt-2">
+                  <Clock className="w-4 h-4 text-brand-orange shrink-0" />
+                  <span>{CONTACT_INFO.hoursShort}</span>
+                </p>
+              </div>
+
+              <div className="flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-2.5">
+                <a
+                  href={CONTACT_INFO.directionsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary flex-1"
+                >
+                  <span>{tr("Get Directions")}</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+                <a
+                  href={CONTACT_INFO.mapLinkUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-secondary-light flex-1"
+                >
+                  <span>{tr("Open in Maps")}</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+              </div>
+            </div>
+
+            {/* Right: compact map */}
+            <div className="lg:col-span-3 h-[240px] sm:h-[280px] lg:h-[320px] bg-gray-100">
+              <iframe
+                title="Ninamore Knowledge Academy location on Google Maps"
+                src={CONTACT_INFO.mapEmbedUrl}
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-full block"
+              />
+            </div>
+
           </div>
         </div>
 
